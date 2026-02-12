@@ -1,0 +1,98 @@
+<!-- Sivuston layout inspiraatio -->
+<!-- https://dribbble.com/shots/23369008-Gym-Fitness-Landing-Page -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="description"
+      content="On tärkeää että pidät huolta itsestäsi. Seuraa treeniohjeitamme, tarkastele terveyttäsi
+      HRV tiedon avulla ja voi kokonaisvaltaisesti hyvin. Suuntaa nyt hyvinvointia ja uutta
+      elämääsi kohti."
+    />
+
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;1,300&family=Roboto+Slab:wght@100;200;300;400;500;600;700;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!---------------->
+    <!-- Navigation -->
+
+    <header class = 'site-header'>
+        <div class = 'container'>
+            <div class = 'header-left'>
+                <span class = 'brand-mark'>SN</span>
+                <div class = 'brand-text'>
+                    <p class = 'brand-title'>Web-sovelluskehitys</p>
+                    <p class = 'brand-subtitle'>Frontend harjoitukset</p>
+                </div>
+            </div>
+
+            <nav class = 'nav' aria-label = 'Valikko'>
+                <ul class = 'nav-list'>
+                    <li class = 'nav-item'><a href="index.html" class="nav-link">Etusivu</a></a></li>
+                    <li class = 'nav-item'><a href = "index.html" href = #yhteystiedot class="nav-link">Yhteystiedot</a></li>
+                    <li class = 'nav-item'><a class = 'nav-link' href= "bmi.html" class="navlink">BMI laskuri</a>
+                </ul>
+            </nav>
+
+            <div class = 'clear'></div>
+        </div>
+    </header>
+
+    <main>
+      <div class="card">
+        <img src="/images/bmi.jpeg" alt="BMI Index chart" style="width: 100%" />
+        <h2>Painoindeksilaskuri / BMI-laskuri</h2>
+        <p class="description">
+          Painoindeksilaskurilla voit laskea pituuden ja painon perustella
+          painoindeksin (BMI, Body Mass Index).
+        </p>
+
+        <form action="">
+          <label for="weight">Anna painosi:</label>
+          <input type="text" id="weight" name="weight" placeholder="kg" />
+          <label for="height">Anna pituutesi:</label>
+          <input type="text" id="height" name="height" placeholder="cm" />
+          <button type="submit" class="btn calculate">Laske indeksi</button>
+        </form>
+
+        <section class="bmi-table">
+          <p>Mittaustuloksesi: <span class="bmi-score">0</span></p>
+
+          <table id="bmiTbl" class="table table-bordered">
+            <tbody>
+              <tr class="bmi0-19">
+                <td>Alipaino</td>
+                <td>0 - 18.9</td>
+              </tr>
+              <tr class="bmi19-25">
+                <td>Normaali paino</td>
+                <td>19 - 24.9</td>
+              </tr>
+              <tr class="bmi25-30">
+                <td>Ylipaino</td>
+                <td>25.0 - 40.0 tai enemmän</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>
+            〽️ Analyysi:
+            <span class="analysis">Tähän saat analyysin BMI tuloksestasi</span>
+          </p>
+        </section>
+      </div>
+    </main>
+  </body>
+  <script type="module" src="/src/bmi.js"></script>
+</html>

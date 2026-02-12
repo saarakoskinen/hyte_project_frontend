@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang = 'fi' >
+    <head>
+        <meta charset = 'UTF-8' >
+        <meta name = 'viewport' content = 'width=device-width, initial-scale = 1.0' >
+        <title>Web-sovelluskehitys, Frontend, Viikko 1</title>
+        <link rel = 'stylesheet' href = '/src/style.css' >
+    </head>
+
+    <body>
+        <header class = 'site-header'>
+            <div class = 'container'>
+                <div class = 'header-left'>
+                    <span class = 'brand-mark'>SN</span>
+                    <div class = 'brand-text'>
+                        <p class = 'brand-title'>Web-sovelluskehitys</p>
+                        <p class = 'brand-subtitle'>Frontend harjoitukset</p>
+                    </div>
+                </div>
+
+                <nav class = 'nav' aria-label = 'Valikko'>
+                    <ul class = 'nav-list'>
+                        <li class = 'nav-item'><a class = 'nav-link' href = #etusivu>Etusivu</a></li>
+                        <li class = 'nav-item'><a class = 'nav-link' href = #yhteystiedot>Yhteystiedot</a></li>
+                        <li class = 'nav-item'><a class = 'nav-link' href= "bmi.html" class="navlink">BMI laskuri</a>
+                    </ul>
+                </nav>
+
+                <div class = 'clear'></div>
+            </div>
+        </header>
+
+        <main>
+            <section id = 'etusivu' class = 'hero'>
+                <div class = 'container'>
+                    <h1 class = 'hero-title'>Sykevälivaihtelu ja mielenterveys</h1>
+                    <p class = 'hero-lead'>Sykevälivaihtelu (HRV, heart rate variability) mittaa peräkkäisten 
+                        sydämenlyöntien välisten aikavälien vaihtelua millisekunneissa. Se on keskeinen 
+                        autonomisen hermoston tasapainon, palautumisen ja stressitasojen mittari. 
+                        Korkea HRV kertoo hyvästä palautumisesta ja sopeutumiskyvystä, 
+                        kun taas matala HRV viittaa stressiin, väsymykseen tai ylikuntoon ja se on rinnastettu myös useiden mielensairauksien kanssa.</p>
+                    <div class = 'hero-actions'>
+                        <a class = 'button button-outline' href = '#yhteystiedot'>Ota yhteyttä</a>
+                    </div>
+                </div>
+            </section>
+            <section id = 'yhteystiedot' class = 'contact'>
+                <div class = 'container'>
+                    <div class = 'contact-card'>
+                        <h2 class = 'contact-title'>Yhteystiedot</h2>
+                        <dl class = 'contact-list'>
+                            <div class = 'contact-row'>
+                                <dt class = 'contact-label'>Ylläpitäjä:</dt>
+                                <dd class = 'contact-value'>Saara Nurminen</dd>
+                            </div>
+                            <div class = 'contact-row'>
+                                <dt class = 'contact-label'>Sähköposti:</dt>
+                                <dd class = 'contact-value'>saara.nurminen@metropolia.fi</dd>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class = 'site-footer'>
+            <div class = 'container'>
+                <p class = 'footer-text'>Copyright, Meitsi</p>
+            </div>
+        </footer>
+    </body>
+</html>

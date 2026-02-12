@@ -1,0 +1,302 @@
+:root {
+  --bg: #6e7dae;
+  --bar: #a1c1db;
+  --text: #eef2f7;
+  --muted: rgba(255, 255, 255, 0.72);
+  --link: rgba(255, 255, 255, 0.75);
+  --accent: #68c6d6;
+  --border: rgba(255, 255, 255, 0.12);
+  --shadow: 0 14px 28px rgba(0, 0, 0, 0.35);
+  --radius: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  background: var(--bar);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.container {
+  width: min(1080px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.site-header {
+  background: rgba(105, 34, 34, 0.914);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.35);
+  box-shadow: var(--shadow);
+  padding: 18px 0;
+}
+
+.header.left {
+  float: left;
+}
+
+.brand-mark {
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 1px;
+  vertical-align: middle;
+  display: inline-block;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 4rem;
+  margin-left: 20px
+}
+
+.brand-text {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 50px;
+}
+
+.brand-title {
+  margin: 0;
+  font-weight: 700;
+  color: var(--accent);
+  font-size: 1.15rem;
+}
+
+.brand-subtitle {
+  margin: 2px 0 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.nav {
+  vertical-align: middle;
+  float: right;
+  margin-top: 0;
+}
+
+.nav-item {
+  display: inline-block;
+  margin-left: 18px;
+}
+
+.nav-list {
+  margin-right: 20px;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-link {
+  display: inline-block;
+  vertical-align: middle;
+  color: var(--link);
+  text-decoration: none;
+  padding: 6px 4px 2px 4px;
+  border-bottom: 2px solid transparent;
+  transition: color 120ms ease, border-color 120ms ease, opacity 120ms ease;
+}
+
+.nav-link:hover {
+  color: var(--text);
+  border-bottom-color: var(--accent);
+}
+
+.nav-link:active {
+  opacity: 0.7;
+  border-bottom-color: var(--text);
+}
+
+.clear {
+  clear: both;
+}
+
+.hero {
+  padding: 38px 0 20px;
+  background: transparent;
+}
+
+.hero-title {
+  margin: 20px 0 10px;
+  text-align: center;
+  font-size: 1.55rem;
+  color: rgba(0, 0, 0, 0.587);
+}
+
+.hero-lead {
+  margin: 0 auto;
+  max-width: 90ch;
+  color:rgba(240, 223, 223, 0.842);
+  background: rgba(49, 54, 55, 0.748);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+}
+
+.hero-actions {
+  text-align: center;
+  margin-top: 14px;
+}
+
+.button {
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  background: rgba(255, 255, 255, 0.4);
+  color:rgba(0, 0, 0, 0.8);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
+}
+
+.button:hover {
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.button:active {
+  transform: scale(0.99);
+}
+
+.button-outline {
+  border-color: rgba(0, 0, 0, 0.25);
+}
+
+.contact {
+  margin-top: 28px;
+  padding: 44px 0;
+  background-color: rgba(255, 255, 255, 0.18);
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  background-image: none;
+  background-size: cover;
+  background-position: center;
+}
+
+.contact-card {
+  width: min(760px, 100%);
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.72);
+  color: rgba(0, 0, 0, 0.8);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 22px;
+}
+
+.contact-title {
+  margin: 0 0 14px;
+  text-align: center;
+  letter-spacing: 1px;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.contact-list {
+  margin: 0;
+}
+
+.contact-row {
+  padding: 12px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.contact-row:first-child {
+  border-top: none;
+}
+
+.contact-label {
+  display: inline-block;
+  width: 160px;
+  font-weight: 700;
+}
+
+.contact-value {
+  display: inline-block;
+  margin: 0;
+  width: calc(100% - 170px);
+}
+
+.site-footer {
+  background: #5a0000;
+  padding: 22px 0;
+  margin-top: 26px;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+}
+
+.footer-text {
+  margin: 0;
+  display: inline-block;
+}
+
+/*BMI:*/
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 30px;
+}
+
+.card > h2 {
+  margin-top: 15px;
+}
+
+.card p {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.description {
+  color: rgb(83, 83, 83);
+  font-size: 18px;
+}
+
+label {
+  display: block;
+}
+
+input[type='text'] {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.btn {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: rgb(30, 39, 46);
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.btn:hover,
+a:hover {
+  opacity: 0.7;
+}
+
+tbody {
+  background-color: rgb(161, 60, 60);
+}
+
+td {
+  border: 1px solid rgb(116, 116, 116);
+  padding: 5px;
+}
+
+.lowBmi {
+  background-color: rgb(71, 178, 210);
+}
+.normalBmi {
+  background-color: rgb(112, 223, 112);
+}
+.highBmi {
+  background-color: rgb(244, 148, 30);
+}
