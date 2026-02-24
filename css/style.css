@@ -76,14 +76,50 @@ body {
 }
 
 .nav-item {
-  display: inline-block;
-  margin-left: 18px;
+  position: relative;
+}
+
+.nav-item a {
+  display: block;
+  padding: 12px 18px;
+  text-decoration: none;
+}
+
+.nav-item.has-submenu {
+  position: realtive;
+}
+
+.submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  min-width: 180px;
+  background-color: rgba(239, 227, 227, 0.903);
+  border: 1px solid rgb(60, 60, 60);
+  display: none;
+  z-index: 9999;
+  min-width: unset;
+  width: 102%;
+}
+
+.submenu li a {
+  padding: 10px;
+  white-space: nowrap;
+  color: rgb(79, 78, 78);
+}
+
+.nav-item.has-submenu:hover .submenu {
+  display: block;
 }
 
 .nav-list {
-  margin-right: 20px;
+  margin: 0;
   padding: 0;
   list-style: none;
+  display: flex;
 }
 
 .nav-link {
@@ -97,7 +133,7 @@ body {
 }
 
 .nav-link:hover {
-  color: var(--text);
+  color: rgba(255, 255, 255, 0.40);
   border-bottom-color: var(--accent);
 }
 
@@ -111,15 +147,25 @@ body {
 }
 
 .hero {
+  min-height: clamp(280px, 45vw, 560px);
   padding: 38px 0 20px;
-  background: transparent;
+
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.15)),
+    url(/images/health_diary_background_hyte2026.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  text-align: center;
 }
 
 .hero-title {
+  text-shadow: 0 2px 10px rgba(0,0,0,0.35);
   margin: 20px 0 10px;
   text-align: center;
   font-size: 1.55rem;
-  color: rgba(0, 0, 0, 0.587);
+  color: var(--accent);
 }
 
 .hero-lead {
@@ -216,7 +262,7 @@ body {
 .site-footer {
   background: #5a0000;
   padding: 22px 0;
-  margin-top: 26px;
+  margin-top: 100px;
   color: rgba(255, 255, 255, 0.7);
   text-align: center;
 }
@@ -233,6 +279,7 @@ body {
   max-width: 500px;
   margin: 50px auto;
   padding: 30px;
+  background-color: #6e7daea5;
 }
 
 .card > h2 {
@@ -244,7 +291,7 @@ body {
   margin-bottom: 20px;
 }
 .description {
-  color: rgb(83, 83, 83);
+  color: rgb(45, 42, 42);
   font-size: 18px;
 }
 
@@ -299,4 +346,93 @@ td {
 }
 .highBmi {
   background-color: rgb(244, 148, 30);
+}
+
+/*responsiivisuus*/
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 900px) {
+  .container {
+    width: min(900px, 94%);
+  }
+
+  .hero {
+    padding: 64px 16px;
+  }
+
+  .hero-title {
+    font-size: 1.6rem;
+  }
+
+  .hero-lead {
+    max-width: 75ch;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero {
+    padding: 52px 14px;
+    min-height: 320px;
+  }
+
+  .hero-title {
+    font-size: 1.35rem;
+  }
+
+  .hero-lead {
+    font-size: 0.98rem;
+    padding: 12px 14px;
+  }
+
+  .nav {
+    float: none;
+    text-align: center;
+    margin-top: 12px;
+  }
+
+  .nav-list {
+    margin-right: 0;
+    padding: 0;
+    margin-top: 12px
+  }
+
+  .nav-item {
+    display: block;
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  .nav-link {
+    display: inline-block;
+    padding: 10px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 44px 12px;
+    min-height: 280px;
+  }
+
+  .hero-title {
+    font-size: 1.18rem;
+  }
+
+  .hero-lead {
+    max-width: 60ch;
+  }
+
+  .button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-link {
+    display: block;
+    width: 100%;
+  }
 }

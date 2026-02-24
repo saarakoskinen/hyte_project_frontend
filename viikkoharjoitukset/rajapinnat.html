@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+  </head>
+    <!--link rel="stylesheet" href="/css/style.css"-->
+    <link rel="stylesheet" href="/css/api.css">
+  <body>
+    <div id="app"></div>
+
+    <main>
+      <h3>console.log harjoitukset</h3>
+
+      <p>
+        Hae kaikki items tiedot omasta backendistä ja printtaa tulos konsoliin.
+        Tämän jälkeen luo items lista tämän kappaleen alle
+      </p>
+
+      <ul class="fruitlist"></ul>
+
+      <pre>GET http://localhost:3000/api/items </pre>
+      <button class="get_items">Get all items</button>
+
+      <h3>Items, GET ja DELETE formin avulla</h3>
+
+      <form class="get-item-form">
+        <label for="itemId">Item ID:</label>
+        <input
+          type="number"
+          id="itemId"
+          name="itemId"
+          placeholder="esim. 1"
+          required
+        />
+        <button type="submit" style="margin-top: 10px">Hae item</button>
+        <button type="button" class="delete-item">Poista item</button>
+      </form>
+
+      <h3>Items, POST (lisää uusi hedelmä)</h3>
+
+      <form class="add-item-form">
+        <label for="newItemName">Name:</label>
+        <input
+          type="text"
+          id="newItemName"
+          name="newItemName"
+          placeholder="esim. Mandariini"
+          required
+        />
+
+        <label for="newItemWeight">Weight (optional):</label>
+        <input
+          type="number"
+          id="newItemWeight"
+          name="newItemWeight"
+          placeholder="esim. 86"
+        />
+
+        <button type="submit" style="margin-top: 10px">Add Item</button>
+      </form>
+
+      <!-- jos ehditään lisätään tämä -->
+      <h3>Items, PUT (muokkaa itemiä)</h3>
+
+      <form class="put-item-form">
+        <label for="putItemId">Item ID:</label>
+        <input
+          type="number"
+          id="putItemId"
+          name="putItemId"
+          placeholder="esim. 1"
+          required
+        />
+
+        <button type="button" class="load-item" style="margin-top: 10px">
+          Hae item muokattavaksi
+        </button>
+
+        <div style="margin-top: 10px">
+          <label for="putItemName">Uusi nimi:</label>
+          <input
+            type="text"
+            id="putItemName"
+            name="putItemName"
+            placeholder="esim. updated Omena"
+            required
+          />
+        </div>
+
+        <button type="submit" style="margin-top: 10px">Päivitä (PUT)</button>
+      </form>
+
+      <h3>Esimerkkitaulukko, staattinen</h3>
+
+      <table class="styled-table">
+        <thead>
+          <tr>
+            <th>Item Name</th>
+            <th>Info</th>
+            <th>Delete</th>
+            <th>ID</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Banana</td>
+            <td><button class="check">Info</button></td>
+            <td><button class="del">Delete</button></td>
+            <td>1</td>
+          </tr>
+          <!--  <tr class="active-row"> -->
+          <tr>
+            <td>Cherry</td>
+            <td><button class="check">Info</button></td>
+            <td><button class="del">Delete</button></td>
+            <td>2</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Haetaan nappia painamalla kaikki itemit ja tehdään lista</h3>
+
+      <pre>GET http://localhost:3000/api/users</pre>
+
+      <button class="get_items_table">Get all items</button>
+
+      <div class="forms">
+        <div style="flex: 1">
+          <h3>GET - Haetaan itemit ja renderöidään esim. lista</h3>
+
+          <p>
+            Hae käyttäjän tiedot painamalla alla olevaa nappia. Tämä hakee
+            tiedot sekä luo taulukon tbody osan. Jokaiselle riville luodaan
+            nappulat. Info hakee yksittäisen rivin tiedot ja avaa alert-popupin.
+            Delete poistaa yksittäisen rivin ja varmistaa tapahtuman confirm()
+            metodilla.
+          </p>
+
+          <table class="styled-table">
+            <thead>
+              <tr>
+                <th>Item Name</th>
+                <th>Info</th>
+                <th>Delete</th>
+                <th>ID</th>
+              </tr>
+            </thead>
+            <tbody class="tbody">
+              <!-- tänne haetaan kaikki itemit -->
+            </tbody>
+          </table>
+        </div>
+        <div style="flex: 1">
+          <h3>POST</h3>
+
+          <p>
+            Lisää käyttäjiä formin avulla. Formi lisää uuden käyttäjän
+            nappulasta 'Add User'. Voit tehdä tämän kotityönä.
+          </p>
+
+          <!-- https://www.w3schools.com/css/css_form.asp -->
+          <!-- https://www.w3schools.com/css/tryit.asp?filename=trycss_form_padding -->
+
+          <pre style="overflow: auto">
+  POST http://localhost:3000/api/users
+  content-type: application/json
+
+  {
+    "username": "Uusi käyttäjä",
+    "password": "salakala",
+    "email": "newuser@example.com"
+  }</pre
+          >
+
+          <form class="addform">
+            <label for="username">Username</label>
+            <input
+              id="username"
+              type="text"
+              name="username"
+              placeholder="Uusi käyttäjä"
+            />
+            <label for="password">Password</label>
+            <input
+              id="password"
+              type="password"
+              name="password"
+              placeholder="salakala"
+            />
+            <input
+              id="email"
+              type="email"
+              name="email"
+              placeholder="newuser@example.com"
+            />
+            <input
+              name="submit"
+              type="submit"
+              value="Add User"
+              class="formpost"
+            />
+          </form>
+        </div>
+      </div>
+
+      <!-- The actual snackbar -->
+      <div id="snackbar">Some text some message..</div>
+    </main>
+
+    <script type="module" src="/src/js/api.js"></script>
+  </body>
+</html>

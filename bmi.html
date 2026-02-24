@@ -7,20 +7,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta
-      name="description"
-      content="On tärkeää että pidät huolta itsestäsi. Seuraa treeniohjeitamme, tarkastele terveyttäsi
-      HRV tiedon avulla ja voi kokonaisvaltaisesti hyvin. Suuntaa nyt hyvinvointia ja uutta
-      elämääsi kohti."
-    />
 
+    <link rel = 'stylesheet' href = '../css/style.css' >
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;1,300&family=Roboto+Slab:wght@100;200;300;400;500;600;700;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-      rel="stylesheet"
+      rel="stylesheet" 
     />
   </head>
   <body>
@@ -33,16 +28,25 @@
                 <span class = 'brand-mark'>SN</span>
                 <div class = 'brand-text'>
                     <p class = 'brand-title'>Web-sovelluskehitys</p>
-                    <p class = 'brand-subtitle'>Frontend harjoitukset</p>
+                    <p class = 'brand-subtitle'>Health diary</p>
                 </div>
             </div>
 
-            <nav class = 'nav' aria-label = 'Valikko'>
-                <ul class = 'nav-list'>
-                    <li class = 'nav-item'><a href="index.html" class="nav-link">Etusivu</a></a></li>
-                    <li class = 'nav-item'><a href = "index.html" href = #yhteystiedot class="nav-link">Yhteystiedot</a></li>
-                    <li class = 'nav-item'><a class = 'nav-link' href= "bmi.html" class="navlink">BMI laskuri</a>
-                </ul>
+            <nav class="nav" aria-label="Valikko">
+              <ul class="nav-list">
+                <li class="nav-item"><a class="nav-link" href="index.html">Etusivu</a></li>
+                <li class="nav-item"><a class="nav-link" href="yhteystiedot.html">Yhteystiedot</a></li>
+                <li class="nav-item"><a class="nav-link" href="bmi.html">BMI laskuri</a></li>
+                <li class="nav-item has-submenu"><a class="nav-link" href="#">Harjoituksia</a>
+                  <ul class="submenu">
+                      <li><a href="/viikkoharjoitukset/flexbox-layout.html">Flexbox-layout</a></li>
+                      <li><a href="/viikkoharjoitukset/flexbox.html">Flexbox</a></li>
+                      <li><a href="/viikkoharjoitukset/js_treenaus.html">Js-treenaus</a></li>
+                      <li><a href="/viikkoharjoitukset/rajapinnat.html">Rajapinnat</a></li>
+                      <li><a href="/viikkoharjoitukset/responsiivisuus.html">Responsiivisuus</a></li>
+                  </ul>
+              </li>
+              </ul>
             </nav>
 
             <div class = 'clear'></div>
@@ -94,5 +98,10 @@
       </div>
     </main>
   </body>
-  <script type="module" src="/src/bmi.js"></script>
+  <script type="module" src="public/js/bmi.js"></script>
+  <footer class = 'site-footer'>
+    <div class = 'container'>
+        <p class = 'footer-text'>Copyright, sn</p>
+    </div>
+</footer>
 </html>

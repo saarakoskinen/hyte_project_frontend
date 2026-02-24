@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsiivinen suunnittelu</title>
+    <style>
+      /* mobile ensin */
+      body {
+        background: linear-gradient(
+          343deg,
+          rgba(34, 193, 195, 1) 0%,
+          rgba(253, 187, 45, 1) 100%
+        );
+      }
+      p {
+        font-family: 'Courier New', Courier, monospace;
+      }
+
+      @media screen and (min-width: 600px) {
+        body {
+          background-color: rgb(170, 171, 97);
+        }
+      }
+
+      @media screen and (min-width: 800px) {
+        body {
+          background-color: blueviolet;
+        }
+      }
+
+      #kissa {
+        width: 100%;
+        max-width: 700px;
+      }
+      #kissa2 {
+        height: 100px;
+        width: 50%;
+        object-fit: cover;
+      }
+      #taustakuva {
+        width: 50%;
+        height: 300px;
+        background-color: aliceblue;
+        background-image: url(/images/kukka.jpeg);
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+      }
+
+      @media screen and (min-width: 720px) {
+        #kissa {
+          display: block;
+          margin: auto;
+        }
+        #taustakuva {
+          background-image: url(/images/bmi.jpeg);
+          background-position: center top;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h3>Otsikko</h3>
+
+    <p>Lorem ipsum dolor</p>
+
+    <h3>Normaali IMG kuva ja mediasäännöt</h3>
+    <img id="kissa" src="/images/cat.jpg" alt="" />
+
+    <h3>Object Fit</h3>
+    <img id="kissa2" src="/images/cat.jpg" alt="" />
+
+    <h3>Taustakuva</h3>
+    <div id="taustakuva"></div>
+  </body>
+</html>

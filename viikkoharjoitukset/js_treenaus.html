@@ -1,0 +1,407 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Javascript Kertaus</title>
+
+    <style>
+      body {
+        font-family: 'Roboto', serif;
+        font-optical-sizing: auto;
+        font-weight: normal;
+        font-style: normal;
+        font-variation-settings: 'wdth' 100;
+      }
+      main {
+        max-width: 700px;
+        margin: auto;
+        margin-bottom: 50px;
+      }
+      h3 {
+        margin-top: 30px;
+        margin-bottom: 20px;
+      }
+      .graybox {
+        background-color: rgb(239, 239, 239);
+        padding: 10px;
+        max-width: 200px;
+      }
+    </style>
+  </head>
+
+  <body style="background-color: rgb(255, 255, 255)">
+    <main>
+      <h1>Javascript harjoittelu</h1>
+
+      <h3>BOM</h3>
+
+      <p>
+        BOM (Browser Object Model) on selainympäristön rakenne, joka
+        mahdollistaa selaimen tarjoamien toiminnallisuuksien käytön JavaScriptin
+        avulla. Sen kautta voidaan käsitellä esimerkiksi selainikkunaa (window),
+        URL-osoitetta (location), selaushistoriaa (history), evästeitä
+        (document.cookie) ja muita selaimen resursseja. BOM ei ole osa HTML- tai
+        DOM-standardeja, mutta se on keskeinen osa web-sovellusten kehittämistä.
+      </p>
+
+      <ul>
+        <li>
+          <a href="https://www.w3schools.com/js/js_window.asp" target="_blank"
+            >Javascript Window</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.w3schools.com/js/js_ex_browser.asp"
+            target="_blank"
+            >JavaScript Browser Objects Examples</a
+          >
+        </li>
+      </ul>
+
+      <p>Avaa console ja katso miten tutkimme selainta.</p>
+
+      <script>
+        // BOM tiedon hakua
+        console.log('Moikka alotellaan treenaaminen');
+        window.console.log('Selaimen ikkunan leveys on', window.innerWidth);
+        // merkkijonoliteraali
+        let age = 34;
+        console.log(age);
+        console.log(`Ullan ikä on ${age} ja ikkunan koko ${window.innerWidth}`);
+      </script>
+
+      <h3>DOM</h3>
+
+      <p>
+        DOM (Document Object Model) on selainympäristössä käytettävä
+        ohjelmointirajapinta, joka edustaa verkkosivua puumaisena rakenteena.
+        Sen avulla JavaScript voi lukea ja muokata HTML-dokumenttien sisältöä,
+        rakennetta ja tyylejä dynaamisesti. DOM tekee verkkosivusta
+        interaktiivisen, mahdollistaen esimerkiksi elementtien lisäämisen,
+        poistamisen, tyylien muuttamisen ja käyttäjän tapahtumiin reagoimisen.
+      </p>
+
+      <img
+        src="https://www.w3schools.com/js/pic_htmltree.gif"
+        alt="DOM"
+        width="500"
+      />
+
+      <p>
+        <a href="https://www.w3schools.com/jsref/default.asp" target="_blank"
+          >JavaScript and HTML DOM</a
+        >
+      </p>
+
+      <h3>Miten löydät, muokkaat ja lisäät elementtejä DOMissa</h3>
+
+      <p>
+        Elementtien valinta ja manipulointi tarkoittaa HTML-elementtien
+        etsimistä ja muokkaamista DOM-puusta. Valinta tapahtuu esimerkiksi ID:n,
+        luokan tai tunnisteen perusteella, ja manipuloinnin avulla voidaan
+        muuttaa elementtien sisältöä, tyylejä tai rakenteita. Katso esimerkki
+        alta:
+      </p>
+
+      <div class="graybox">
+        <h4 id="otsikko">H4 Otsikko, vaihda tämä</h4>
+
+        <ul class="fruitlist">
+          <li>Omena</li>
+          <li>Banaani</li>
+          <li class="fruit">Appelsiini</li>
+        </ul>
+      </div>
+
+      <script>
+        // Vaihdetaan h4 otsikon sisältö ja värjätään tausta
+        // Vaihda tekstisisältö esim. Hedelmälista
+
+        // 1. Etsi ominaisuus
+        // https://www.w3schools.com/jsref/dom_obj_document.asp
+
+        const heading = document.getElementById('otsikko');
+        console.log(heading);
+        console.dir(heading);
+
+        // 2. Elementin manipulointi
+        // https://www.w3schools.com/jsref/dom_obj_all.asp
+
+        heading.innerHTML = 'Hedelmälista';
+        console.dir(heading);
+        console.log(heading.clientHeight);
+
+        // 3. Tyylin muokkaus
+        // https://www.w3schools.com/jsref/dom_obj_style.asp
+
+        heading.style.color = 'orange';
+
+        // 4. Etsi nyt Appelsiini ja tee siitä linkki joka vie sinut
+        // sivulle https://fi.wikipedia.org/wiki/Appelsiini
+
+        const fruit = document.querySelector('.fruit');
+        fruit.innerHTML = `<a href="https://fi.wikipedia.org/wiki/Appelsiini">Appelsiini</a>`;
+
+        // 5. Lisätään nyt listaan uusi LI elementti "Mango"
+        const fruitlist = document.querySelector('.fruitlist');
+        const newfruit = document.createElement('li');
+        newfruit.innerText = 'Mango';
+
+        fruitlist.appendChild(newfruit);
+
+        // Etsitään nyt kaikki hedelmät ja tulostetaan konsoliin
+        // https://www.w3schools.com/js/js_loop_forof.asp
+
+        const fruitlist2 = document.querySelectorAll('.fruitlist > li');
+        console.log(fruitlist2);
+
+        for (const fruit of fruitlist2) {
+          console.log(fruit);
+        }
+        // TAI
+        // https://www.w3schools.com/js/js_loop_for.asp
+        // TAI
+        // https://www.w3schools.com/jsref/jsref_foreach.asp
+        fruitlist2.forEach((fruit) => {
+          console.log(fruit.innerText);
+        });
+      </script>
+
+      <h3>Tapahtumankuuntelijat - lisääminen ja poistaminen</h3>
+
+      <p>
+        Tapahtumankuuntelija (event listener) on mekanismi, joka reagoi
+        käyttäjän tai sovelluksen tapahtumiin, kuten klikkauksiin,
+        näppäinpainalluksiin tai sivun latautumiseen. Se liitetään
+        HTML-elementtiin, ja sen avulla voidaan suorittaa tietty funktio
+        tapahtuman tapahtuessa.
+      </p>
+
+      <ul>
+        <li>
+          <a
+            href="https://www.w3schools.com/js/js_htmldom_eventlistener.asp"
+            target="_blank"
+            >Event Listeners</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.w3schools.com/jsref/dom_obj_event.asp"
+            target="_blank"
+            >DOM events</a
+          >
+        </li>
+      </ul>
+
+      <p>1. Kerrataan ensin funktioiden rakenne, katso koodista</p>
+
+      <p>
+        <a
+          href="https://www.w3schools.com/js/js_arrow_function.asp"
+          target="_blank"
+          >Arrow Function</a
+        >
+      </p>
+
+      <script>
+        // JS funktiot
+
+        // perinteinen funktiomäärittely
+        function greet(name) {
+          console.log(`Moikka ${name}!!!!!`);
+        }
+
+        // function expression. Funtio joka on anonyymi mutta tallennetaan muuttujaan
+        const greet2 = function (name) {
+          console.log(`Moikka ${name}!!!!!`);
+        };
+
+        // arrow funktio / nuolifunktio, edellistä yksikertaisempi ja lyhyempi
+        const greet3 = (name) => {
+          console.log(`Moikka ${name}!!!!!`);
+        };
+
+        greet2('Matti');
+        greet3('Tiina');
+        greet('Ulla');
+      </script>
+
+      <p>2. Lisätään nappuloille kuuntelijat</p>
+
+      <button id="btn">Vaihda taustaväri</button>
+      <button id="btn2">Avaa uusi ikkuna</button>
+
+      <script>
+        // Etsitään molemmat nappulat DOMista ja tallennetaan muuttujaan
+        let btn = document.querySelector('#btn');
+        let btn2 = document.querySelector('#btn2');
+
+        // Funktio: vaihtaa taustavärin kahden vaihtoehdon välillä V1
+        function toggleBackground(evt) {
+          console.log(evt);
+          let currentColor = document.body.style.backgroundColor;
+          //let currentColor = getComputedStyle(document.body).backgroundColor;
+          console.log('Taustaväri:', currentColor);
+
+          if (currentColor == 'rgb(255, 255, 255)') {
+            console.log('Se on valkoinen, vaihdetaan pinkiksi!');
+            document.body.style.backgroundColor = 'rgb(255,182,190)';
+          } else {
+            console.log('Vaihdetaan takaisin valkoiseksi!!');
+            document.body.style.backgroundColor = 'rgb(255,255,255)';
+          }
+        }
+
+        function toggleBackground2() {
+          //  tulos = ika >= 18 ? 'Aikuinen' : 'Lapsi';
+
+          let currentColor = document.body.style.backgroundColor;
+
+          document.body.style.backgroundColor =
+            currentColor === 'rgb(255, 255, 255)'
+              ? 'rgb(255,182,190)'
+              : 'rgb(255,255,255)';
+        }
+
+        btn.addEventListener('click', toggleBackground2);
+
+        btn2.addEventListener('click', () => {
+          console.log('Klikkasin nappulaa');
+          window.open('https://www.w3schools.com/js/js_arrow_function.asp');
+        });
+
+        // Funktio: avataan uusi ikkuna
+      </script>
+
+      <p>3. Mouse Events / Tutkitaan hiiren klikkauksia</p>
+
+      <button id="btn3">Klikkaa eri hiiren nappuloilla tutkiaksesi</button>
+
+      <script>
+        // Mitä kolmesta hiiren nappulasta painettiin? Tutkitaan mousedown eventtiä.
+        let bt3 = document.querySelector('#btn3');
+
+        bt3.addEventListener('mousedown', (event) => {
+          console.log(event);
+
+          if (event.button == 0) {
+            console.log('Left button');
+          } else if (event.button == 1) {
+            console.log('Middle button');
+          } else if (event.button == 2) {
+            console.log('Right button');
+          } else {
+            console.log('Virhe');
+            console.log('Moi');
+          }
+        });
+      </script>
+
+      <p>4. Key events / Näppäimistön painikkeiden eventit</p>
+
+      <p>Paina kirjainta V niin saat värjättyä tausta violetiksi</p>
+
+      <script>
+        // Näppäimistön eventit
+        window.addEventListener('keydown', (event) => {
+          if (event.key == 'v') {
+            document.body.style.background = 'violet';
+          }
+        });
+
+        window.addEventListener('keyup', (event) => {
+          if (event.key == 'v') {
+            document.body.style.background = '';
+          }
+        });
+      </script>
+
+      <h3>Prevent Default / Estä perus käyttäytyminen</h3>
+
+      <a id="link" href="https://developer.mozilla.org/">MDN</a>
+
+      <script>
+        // Estetään linkin normaali toiminta
+        let link = document.querySelector('#link');
+        link.addEventListener('click', (event) => {
+          console.log('NOPE ei onnistu!!!!');
+          event.preventDefault();
+        });
+      </script>
+
+      <h3>Prevent Default / Estä perus käyttäytyminen FORMeissa</h3>
+
+      <p>
+        <a href="https://www.w3schools.com/html/html_forms.asp" target="_blank"
+          >Forms</a
+        >
+      </p>
+
+      <form action="">
+        <label for="fname">Etunimi:</label>
+        <input type="text" id="fname" name="fname" value="Ulla" />
+        <label for="lname">Sukunimi:</label>
+        <input type="text" id="lname" name="lname" value="Sederlöf" />
+        <input type="submit" value="Submit" />
+      </form>
+
+      <script>
+        // Estetään formin normaalitoiminta ja pomitaan arvot formista JSn avulla jatkokäsittelyä varten
+        let form = document.querySelector('form');
+        form.addEventListener('submit', (event) => {
+          console.log('Ei onnistu formin lähettäminen!!!!');
+
+          // estää formin lähettämisen
+          event.preventDefault();
+          const firstName = document.getElementById('fname').value;
+          const lastName = document.getElementById('lname').value;
+
+          // Tässä välissä lähetämme backendille nämä tiedot
+
+          console.log(`Etunimi: ${firstName} ja Sukunimi: ${lastName}`);
+
+          // Vaihtoehto palauttaa true/false
+          let choice = confirm(
+            `Onko nämä tiedot oikein: ${firstName} ${lastName} `
+          );
+          console.log(choice);
+
+          // Kysytään tietoa
+          let name = prompt('Mikä on sinun nimi');
+          console.log(name);
+        });
+      </script>
+    </main>
+
+    <script>
+      // Yleiset testit
+      // ehto ? arvoJosTosi : arvoJosEpätosi
+      let ika = 8;
+      let tulos = '';
+
+      // if (ika >= 18) {
+      //   tulos = 'Aikuinen';
+      // } else {
+      //   tulos = 'Lapsi';
+      // }
+
+      tulos = ika >= 18 ? 'Aikuinen' : 'Lapsi';
+
+      console.log(tulos);
+
+      window.addEventListener('scroll', () => {
+        let top = pageYOffset;
+        console.log(top);
+      });
+    </script>
+  </body>
+</html>
