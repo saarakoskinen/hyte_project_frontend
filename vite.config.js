@@ -11,6 +11,7 @@ export default defineConfig({
 				main: resolve(__dirname, 'index.html'),
 				bmi: resolve(__dirname, 'bmi.html'),
 				contact: resolve(__dirname, 'yhteystiedot.html'),
+				harjoituket: resolve(__dirname, 'harjoitukset.html'),
 			},
 		},
 	},
