@@ -211,3 +211,154 @@
       flex-direction: column;
     }
   }
+/* --- API view layout and tabs (new section) --- */
+body {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  background: #f4f7fb;
+  color: #1f2c3d;
+}
+
+/* Limit content width for readability */
+main {
+  width: min(1200px, calc(100% - 2rem));
+  margin: 2rem auto;
+}
+
+h1 {
+  margin-bottom: 0.4rem;
+}
+
+/* Tab button row */
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1.2rem 0;
+}
+
+/* Base tab button style */
+.tab-btn {
+  border: 1px solid #bcc8da;
+  background: #ffffff;
+  color: #1f2c3d;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Active tab highlight */
+.tab-btn.active {
+  background: #1f5ea8;
+  color: #ffffff;
+  border-color: #1f5ea8;
+}
+
+/* Shared panel card */
+.tab-panel {
+  border: 1px solid #d5deec;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+/* Top controls inside a panel */
+.toolbar {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.toolbar input {
+  max-width: 360px;
+}
+
+/* CRUD forms as responsive cards */
+.forms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.panel-form {
+  width: auto;
+  margin: 0;
+  background: #f7faff;
+  color: #1f2c3d;
+  border: 1px solid #dbe6f5;
+  border-radius: 10px;
+}
+
+.panel-form h3 {
+  margin-top: 0;
+}
+
+/* Response debug/output boxes */
+.users-response,
+.items-response {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  background: #f5f8ff;
+  min-height: 80px;
+  overflow: auto;
+}
+
+/* Danger button tone for delete actions */
+.danger {
+  background: #ffe1e1;
+  border-color: #f0b7b7;
+}
+
+/* Compact table and stacked toolbar on small screens */
+@media screen and (max-width: 780px) {
+  .styled-table {
+    min-width: 100%;
+    font-size: 0.8rem;
+  }
+
+  .styled-table th,
+  .styled-table td {
+    padding: 0.45rem;
+  }
+
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* Auth card shown before protected content */
+.auth-card {
+  border: 1px solid #d5deec;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.auth-card h2 {
+  margin-top: 0;
+}
+
+.auth-status {
+  margin: 0.75rem 0 0.25rem;
+}
+
+.auth-response {
+  margin: 0;
+  padding: 0.75rem;
+  border-radius: 8px;
+  background: #f5f8ff;
+  min-height: 60px;
+  overflow: auto;
+}
+
+.auth-logout-btn {
+  margin-top: 0.5rem;
+}
+
+.protected-content[hidden] {
+  display: none;
+}

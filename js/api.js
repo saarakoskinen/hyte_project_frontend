@@ -1,120 +1,184 @@
 import {
-  getItems,
-  getItemById,
-  deleteItemById,
-  addItem,
-  updateItemById,
-  loadItemToPutForm,
-} from './items';
+  fetchData,
+  getAuthToken,
+  hasAuthToken,
+  setAuthToken,
+  clearAuthToken,
+} from './fetch.js';
+import { initUsersTab } from './users.js';
+import { initItemsTab } from './items.js';
 
-console.log('Scripti starttaa');
+const USERS_LOGIN_URL = '/api/users/login';
 
-// sync ja asyc ajatus ja demo
+const pretty = (data) => JSON.stringify(data, null, 2);
 
-// function synchronousFunction() {
-//   let number = 1;
-//   for (let i = 1; i < 10000; i++) {
-//     number += i;
-//     console.log('synchronousFunction running');
-//   }
-//   console.log('regular function complete', number);
-// }
+const getAuthElements = () => ({
+  loginForm: document.querySelector('.auth-login-form'),
+  usernameInput: document.querySelector('#authUsername'),
+  passwordInput: document.querySelector('#authPassword'),
+  logoutBtn: document.querySelector('.auth-logout-btn'),
+  statusLabel: document.querySelector('.auth-status'),
+  responseBox: document.querySelector('.auth-response'),
+  protectedContent: document.querySelector('.protected-content'),
+  tabs: document.querySelector('.tabs'),
+});
 
-// synchronousFunction();
+const setAuthResponse = (payload) => {
+  const { responseBox } = getAuthElements();
+  if (responseBox) {
+    responseBox.textContent = pretty(payload);
+  }
+};
 
-console.log('Valmis');
+const setLoggedInUI = () => {
+  const { loginForm, logoutBtn, statusLabel, protectedContent, tabs } =
+    getAuthElements();
 
-// synkroninen
-// console.log('1');
-// console.log('2');
-// console.log('3');
+  if (loginForm) {
+    loginForm.hidden = true;
+  }
 
-// async suoritus
+  if (logoutBtn) {
+    logoutBtn.hidden = false;
+  }
 
-// console.log('1');
+  if (statusLabel) {
+    const token = getAuthToken();
+    statusLabel.textContent = `Kirjautunut. Token: ${token.slice(0, 20)}...`;
+  }
 
-// setTimeout(() => {
-//   console.log('2');
-// }, 4000);
+  if (protectedContent) {
+    protectedContent.hidden = false;
+  }
 
-// console.log('3');
+  if (tabs) {
+    tabs.hidden = false;
+  }
+};
 
-// GET
-// eka haku ulkoiseen rajapintaan
-// tämä on fetch käyttäen promisea (eli lupausta)
-// ja ON asykroninen
+const setLoggedOutUI = () => {
+  const { loginForm, logoutBtn, statusLabel, protectedContent, tabs } =
+    getAuthElements();
 
-// fetch('https://api.restful-api.dev/objects')
-//   .then((response) => {
-//     console.log(response);
-//     if (!response.ok) {
-//       throw new Error('Verkkovastaus ei ollut kunnossa');
-//     }
-//     return response.json();
-//   })
-//   .then((data) => {
-//     console.log(data);
-//   })
-//   .catch((error) => {
-//     console.error('Fetch-operaatiossa ilmeni ongelma:', error);
-//   });
+  if (loginForm) {
+    loginForm.hidden = false;
+  }
 
-// Yksikertaistetaan ja modernisoidaan haku
-// käytettän async ja await avainsanoja
+  if (logoutBtn) {
+    logoutBtn.hidden = true;
+  }
 
-// async function getData() {
-//   try {
-//     const response = await fetch('https://api.restful-api.dev/objects');
-//     const data = await response.json();
-//     console.log(data);
-//   } catch (error) {
-//     console.error('Virhe:', error);
-//   }
-// }
+  if (statusLabel) {
+    statusLabel.textContent = 'Et ole kirjautunut.';
+  }
 
-//getData();
+  if (protectedContent) {
+    protectedContent.hidden = true;
+  }
 
-// ensimmäinen oma kutsu BE puolelle
+  if (tabs) {
+    tabs.hidden = true;
+  }
+};
 
-// const consoleLogItems = async () => {
-//   try {
-//     // default on GET kutsu ilman optiota
-//     const response = await fetch('http://localhost:3000/api/items');
-//     const data = await response.json();
-//     console.log('Haetaan omasta rajapinnasta!!!');
-//     console.log(data);
+const syncAuthUI = () => {
+  if (hasAuthToken()) {
+    setLoggedInUI();
+    return;
+  }
 
-//     data.forEach((rivi) => {
-//       console.log(rivi);
-//       console.log(rivi.name);
-//     });
-//   } catch (error) {
-//     console.error('Virhe:', error);
-//   }
-// };
+  setLoggedOutUI();
+};
 
-// consoleLogItems();
+const login = async (event) => {
+  event.preventDefault();
 
-//getItems();
+  const { loginForm, usernameInput, passwordInput } = getAuthElements();
+  if (!loginForm || !usernameInput || !passwordInput) {
+    return;
+  }
 
-// hakekaa nappula
-// lisätkää kuuntelija suorittakaa klikatessa getItems funktio
-const getItemsBtn = document.querySelector('.get_items');
-getItemsBtn.addEventListener('click', getItems);
+  const body = {
+    username: usernameInput.value.trim(),
+    password: passwordInput.value.trim(),
+  };
 
-const getForm = document.querySelector('.get-item-form');
-getForm.addEventListener('submit', getItemById);
+  const result = await fetchData(
+    USERS_LOGIN_URL,
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    },
+    { skipAuth: true }
+  );
 
-const deleteBtn = document.querySelector('.delete-item');
-deleteBtn.addEventListener('click', deleteItemById);
+  setAuthResponse(result);
 
-// Etsitään formi, ei itse nappulaa ja tutkitaan SUBMIT eventtiä
-const addItemForm = document.querySelector('.add-item-form');
-addItemForm.addEventListener('submit', addItem);
+  if (result.error) {
+    return;
+  }
 
-// PUT lisäykset KOTITEHTÄVÄKSI
-const loadItemBtn = document.querySelector('.load-item');
-loadItemBtn.addEventListener('click', loadItemToPutForm);
+  if (!result.token) {
+    setAuthResponse({ error: 'Login onnistui, mutta token puuttuu vastauksesta.' });
+    return;
+  }
 
-const putForm = document.querySelector('.put-item-form');
-putForm.addEventListener('submit', updateItemById);
+  setAuthToken(result.token);
+  loginForm.reset();
+};
+
+const logout = () => {
+  clearAuthToken();
+  setAuthResponse({ message: 'Uloskirjautuminen onnistui.' });
+};
+
+const initAuth = () => {
+  const { loginForm, logoutBtn } = getAuthElements();
+
+  if (!loginForm || !logoutBtn) {
+    return;
+  }
+
+  loginForm.addEventListener('submit', login);
+  logoutBtn.addEventListener('click', logout);
+
+  window.addEventListener('auth:changed', syncAuthUI);
+  syncAuthUI();
+};
+
+const initTabs = () => {
+  const tabButtons = [...document.querySelectorAll('.tab-btn')];
+  const tabPanels = [...document.querySelectorAll('.tab-panel')];
+
+  if (!tabButtons.length || !tabPanels.length) {
+    return;
+  }
+
+  const activateTab = (tabName) => {
+    tabButtons.forEach((button) => {
+      const isActive = button.dataset.tab === tabName;
+      button.classList.toggle('active', isActive);
+      button.setAttribute('aria-selected', String(isActive));
+    });
+
+    tabPanels.forEach((panel) => {
+      const isActive = panel.id === `${tabName}-panel`;
+      panel.classList.toggle('active', isActive);
+      panel.hidden = !isActive;
+    });
+  };
+
+  tabButtons.forEach((button) => {
+    button.addEventListener('click', () => activateTab(button.dataset.tab));
+  });
+};
+
+const init = () => {
+  initAuth();
+  initTabs();
+  initUsersTab();
+  initItemsTab();
+};
+
+init();

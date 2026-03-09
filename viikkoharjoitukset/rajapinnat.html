@@ -1,215 +1,165 @@
 <!doctype html>
-<html lang="en">
+<html lang="fi">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Rajapinnat - Health diary</title>
+    <link rel="stylesheet" href="/css/api.css" />
   </head>
-    <!--link rel="stylesheet" href="/css/style.css"-->
-    <link rel="stylesheet" href="/css/api.css">
   <body>
-    <div id="app"></div>
-
     <main>
-      <h3>console.log harjoitukset</h3>
+      <h1>Rajapinnat</h1>
+      <p>Kirjaudu ensin sisaan. JWT-token lisataan automaattisesti kaikkiin muihin kutsuihin.</p>
 
-      <p>
-        Hae kaikki items tiedot omasta backendistä ja printtaa tulos konsoliin.
-        Tämän jälkeen luo items lista tämän kappaleen alle
-      </p>
+      <section class="auth-card">
+        <h2>Tunnistautuminen</h2>
 
-      <ul class="fruitlist"></ul>
+        <form class="auth-login-form panel-form">
+          <label for="authUsername">Username</label>
+          <input id="authUsername" type="text" required />
+          <label for="authPassword">Password</label>
+          <input id="authPassword" type="password" required />
+          <button type="submit">Kirjaudu sisaan</button>
+        </form>
 
-      <pre>GET http://localhost:3000/api/items </pre>
-      <button class="get_items">Get all items</button>
+        <button type="button" class="auth-logout-btn danger" hidden>Kirjaudu ulos</button>
+        <p class="auth-status" aria-live="polite">Et ole kirjautunut.</p>
+        <pre class="auth-response" aria-live="polite"></pre>
+      </section>
 
-      <h3>Items, GET ja DELETE formin avulla</h3>
-
-      <form class="get-item-form">
-        <label for="itemId">Item ID:</label>
-        <input
-          type="number"
-          id="itemId"
-          name="itemId"
-          placeholder="esim. 1"
-          required
-        />
-        <button type="submit" style="margin-top: 10px">Hae item</button>
-        <button type="button" class="delete-item">Poista item</button>
-      </form>
-
-      <h3>Items, POST (lisää uusi hedelmä)</h3>
-
-      <form class="add-item-form">
-        <label for="newItemName">Name:</label>
-        <input
-          type="text"
-          id="newItemName"
-          name="newItemName"
-          placeholder="esim. Mandariini"
-          required
-        />
-
-        <label for="newItemWeight">Weight (optional):</label>
-        <input
-          type="number"
-          id="newItemWeight"
-          name="newItemWeight"
-          placeholder="esim. 86"
-        />
-
-        <button type="submit" style="margin-top: 10px">Add Item</button>
-      </form>
-
-      <!-- jos ehditään lisätään tämä -->
-      <h3>Items, PUT (muokkaa itemiä)</h3>
-
-      <form class="put-item-form">
-        <label for="putItemId">Item ID:</label>
-        <input
-          type="number"
-          id="putItemId"
-          name="putItemId"
-          placeholder="esim. 1"
-          required
-        />
-
-        <button type="button" class="load-item" style="margin-top: 10px">
-          Hae item muokattavaksi
-        </button>
-
-        <div style="margin-top: 10px">
-          <label for="putItemName">Uusi nimi:</label>
-          <input
-            type="text"
-            id="putItemName"
-            name="putItemName"
-            placeholder="esim. updated Omena"
-            required
-          />
+      <div class="protected-content" hidden>
+        <div class="tabs" role="tablist" aria-label="Rajapinta valilehdet">
+          <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="users-panel" id="users-tab" data-tab="users">Kayttajat</button>
+          <button class="tab-btn" role="tab" aria-selected="false" aria-controls="items-panel" id="items-tab" data-tab="items">Terveysdata</button>
         </div>
 
-        <button type="submit" style="margin-top: 10px">Päivitä (PUT)</button>
-      </form>
+        <section id="users-panel" class="tab-panel active" role="tabpanel" aria-labelledby="users-tab">
+          <h2>Kayttajat (Users API)</h2>
 
-      <h3>Esimerkkitaulukko, staattinen</h3>
+          <div class="toolbar">
+            <button type="button" class="users-load-all">Hae kaikki kayttajat</button>
+            <input type="search" class="users-search" placeholder="Hae kayttajanimella tai sahkopostilla" />
+          </div>
 
-      <table class="styled-table">
-        <thead>
-          <tr>
-            <th>Item Name</th>
-            <th>Info</th>
-            <th>Delete</th>
-            <th>ID</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Banana</td>
-            <td><button class="check">Info</button></td>
-            <td><button class="del">Delete</button></td>
-            <td>1</td>
-          </tr>
-          <!--  <tr class="active-row"> -->
-          <tr>
-            <td>Cherry</td>
-            <td><button class="check">Info</button></td>
-            <td><button class="del">Delete</button></td>
-            <td>2</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3>Haetaan nappia painamalla kaikki itemit ja tehdään lista</h3>
-
-      <pre>GET http://localhost:3000/api/users</pre>
-
-      <button class="get_items_table">Get all items</button>
-
-      <div class="forms">
-        <div style="flex: 1">
-          <h3>GET - Haetaan itemit ja renderöidään esim. lista</h3>
-
-          <p>
-            Hae käyttäjän tiedot painamalla alla olevaa nappia. Tämä hakee
-            tiedot sekä luo taulukon tbody osan. Jokaiselle riville luodaan
-            nappulat. Info hakee yksittäisen rivin tiedot ja avaa alert-popupin.
-            Delete poistaa yksittäisen rivin ja varmistaa tapahtuman confirm()
-            metodilla.
-          </p>
-
-          <table class="styled-table">
+          <table class="styled-table users-table">
             <thead>
               <tr>
-                <th>Item Name</th>
-                <th>Info</th>
-                <th>Delete</th>
-                <th>ID</th>
+                <th>user_id</th>
+                <th>username</th>
+                <th>email</th>
+                <th>created_at</th>
+                <th>user_level</th>
+                <th>Toiminnot</th>
               </tr>
             </thead>
-            <tbody class="tbody">
-              <!-- tänne haetaan kaikki itemit -->
-            </tbody>
+            <tbody class="users-tbody"></tbody>
           </table>
-        </div>
-        <div style="flex: 1">
-          <h3>POST</h3>
 
-          <p>
-            Lisää käyttäjiä formin avulla. Formi lisää uuden käyttäjän
-            nappulasta 'Add User'. Voit tehdä tämän kotityönä.
-          </p>
+          <div class="forms-grid">
+            <form class="users-get-form panel-form">
+              <h3>Hae kayttaja ID:lla</h3>
+              <label for="userGetId">Kayttaja ID</label>
+              <input id="userGetId" name="userGetId" type="number" min="1" required />
+              <button type="submit">Hae kayttaja</button>
+            </form>
 
-          <!-- https://www.w3schools.com/css/css_form.asp -->
-          <!-- https://www.w3schools.com/css/tryit.asp?filename=trycss_form_padding -->
+            <form class="users-create-form panel-form">
+              <h3>Luo kayttaja</h3>
+              <label for="createUsername">Username</label>
+              <input id="createUsername" name="username" type="text" required />
+              <label for="createPassword">Password</label>
+              <input id="createPassword" name="password" type="password" required />
+              <label for="createEmail">Email</label>
+              <input id="createEmail" name="email" type="email" required />
+              <button type="submit">Luo kayttaja</button>
+            </form>
 
-          <pre style="overflow: auto">
-  POST http://localhost:3000/api/users
-  content-type: application/json
+            <form class="users-update-form panel-form">
+              <h3>Paivita kayttaja</h3>
+              <label for="updateUserId">Kayttaja ID</label>
+              <input id="updateUserId" name="userId" type="number" min="1" required />
+              <label for="updateUsername">Username (optional)</label>
+              <input id="updateUsername" name="username" type="text" />
+              <label for="updateEmail">Email (optional)</label>
+              <input id="updateEmail" name="email" type="email" />
+              <label for="updatePassword">Password (optional)</label>
+              <input id="updatePassword" name="password" type="password" />
+              <label for="updateLevel">user_level (optional)</label>
+              <input id="updateLevel" name="user_level" type="text" />
+              <button type="submit">Paivita kayttaja</button>
+            </form>
 
-  {
-    "username": "Uusi käyttäjä",
-    "password": "salakala",
-    "email": "newuser@example.com"
-  }</pre
-          >
+            <form class="users-delete-form panel-form">
+              <h3>Poista kayttaja</h3>
+              <label for="deleteUserId">Kayttaja ID</label>
+              <input id="deleteUserId" name="userId" type="number" min="1" required />
+              <button type="submit" class="danger">Poista kayttaja</button>
+            </form>
+          </div>
 
-          <form class="addform">
-            <label for="username">Username</label>
-            <input
-              id="username"
-              type="text"
-              name="username"
-              placeholder="Uusi käyttäjä"
-            />
-            <label for="password">Password</label>
-            <input
-              id="password"
-              type="password"
-              name="password"
-              placeholder="salakala"
-            />
-            <input
-              id="email"
-              type="email"
-              name="email"
-              placeholder="newuser@example.com"
-            />
-            <input
-              name="submit"
-              type="submit"
-              value="Add User"
-              class="formpost"
-            />
-          </form>
-        </div>
+          <pre class="users-response" aria-live="polite"></pre>
+        </section>
+
+        <section id="items-panel" class="tab-panel" role="tabpanel" aria-labelledby="items-tab" hidden>
+          <h2>Terveysdata (Items API)</h2>
+
+          <div class="toolbar">
+            <button type="button" class="items-load-all">Hae kaikki tapahtumat</button>
+          </div>
+
+          <table class="styled-table items-table">
+            <thead>
+              <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>weight</th>
+                <th>Toiminnot</th>
+              </tr>
+            </thead>
+            <tbody class="items-tbody"></tbody>
+          </table>
+
+          <div class="forms-grid">
+            <form class="items-get-form panel-form">
+              <h3>Hae tapahtuma ID:lla</h3>
+              <label for="itemGetId">Tapahtuma ID</label>
+              <input id="itemGetId" name="itemId" type="number" min="1" required />
+              <button type="submit">Hae tapahtuma</button>
+            </form>
+
+            <form class="items-create-form panel-form">
+              <h3>Luo tapahtuma</h3>
+              <label for="itemCreateName">Nimi</label>
+              <input id="itemCreateName" name="name" type="text" required />
+              <label for="itemCreateWeight">Arvo / paino (optional)</label>
+              <input id="itemCreateWeight" name="weight" type="number" step="any" />
+              <button type="submit">Luo tapahtuma</button>
+            </form>
+
+            <form class="items-update-form panel-form">
+              <h3>Paivita tapahtuma</h3>
+              <label for="itemUpdateId">Tapahtuma ID</label>
+              <input id="itemUpdateId" name="itemId" type="number" min="1" required />
+              <label for="itemUpdateName">Nimi (optional)</label>
+              <input id="itemUpdateName" name="name" type="text" />
+              <label for="itemUpdateWeight">Arvo / paino (optional)</label>
+              <input id="itemUpdateWeight" name="weight" type="number" step="any" />
+              <button type="submit">Paivita tapahtuma</button>
+            </form>
+
+            <form class="items-delete-form panel-form">
+              <h3>Poista tapahtuma</h3>
+              <label for="itemDeleteId">Tapahtuma ID</label>
+              <input id="itemDeleteId" name="itemId" type="number" min="1" required />
+              <button type="submit" class="danger">Poista tapahtuma</button>
+            </form>
+          </div>
+
+          <pre class="items-response" aria-live="polite"></pre>
+        </section>
       </div>
-
-      <!-- The actual snackbar -->
-      <div id="snackbar">Some text some message..</div>
     </main>
 
-    <script type="module" src="/src/js/api.js"></script>
+    <script type="module" src="/js/api.js"></script>
   </body>
 </html>
