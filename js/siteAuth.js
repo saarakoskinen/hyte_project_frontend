@@ -47,7 +47,7 @@ const ensureAuthUI = () => {
     trigger = document.createElement('button');
     trigger.type = 'button';
     trigger.className = 'site-auth-trigger';
-    trigger.textContent = 'Kirjaudu sisaan';
+    trigger.textContent = 'Kirjaudu sisään';
     trigger.setAttribute('aria-haspopup', 'dialog');
 
     headerContainer.appendChild(trigger);
@@ -71,13 +71,13 @@ const ensureAuthUI = () => {
             <label for="siteAuthPassword">Password</label>
             <input id="siteAuthPassword" type="password" required />
 
-            <button type="submit">Kirjaudu sisaan</button>
+            <button type="submit">Kirjaudu sisään</button>
           </form>
 
           <hr class="site-auth-divider" />
 
           <form class="site-auth-register-form" autocomplete="on">
-            <h3 class="site-auth-subtitle">Luo uusi kayttaja</h3>
+            <h3 class="site-auth-subtitle">Luo uusi käyttäjä</h3>
 
             <label for="siteAuthRegisterUsername">Username</label>
             <input id="siteAuthRegisterUsername" type="text" required />
@@ -88,7 +88,7 @@ const ensureAuthUI = () => {
             <label for="siteAuthRegisterPassword">Password</label>
             <input id="siteAuthRegisterPassword" type="password" required />
 
-            <button type="submit">Luo kayttaja</button>
+            <button type="submit">Luo kayttäjä</button>
           </form>
         </section>
 
@@ -238,7 +238,7 @@ const login = async (event) => {
   }
 
   if (!result.token) {
-    setFeedback('Kirjautuminen epaonnistui: token puuttuu.', 'error');
+    setFeedback('Kirjautuminen epäonnistui: token puuttuu.', 'error');
     return;
   }
 
@@ -289,7 +289,7 @@ const registerUser = async (event) => {
     return;
   }
 
-  setFeedback('Kayttaja luotu. Voit nyt kirjautua sisaan.', 'success');
+  setFeedback('Käyttäjä luotu. Voit nyt kirjautua sisään.', 'success');
   registerForm.reset();
 
   if (usernameInput) {
