@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Omat merkinnat - Health diary</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <header class='site-header'>
+      <div class='container'>
+        <div class='header-left'>
+          <span class='brand-mark'>SN</span>
+          <div class='brand-text'>
+            <p class='brand-title'>Web-sovelluskehitys</p>
+            <p class='brand-subtitle'>Health diary</p>
+          </div>
+        </div>
+
+        <nav class="nav" aria-label="Valikko">
+          <ul class="nav-list">
+            <li class="nav-item"><a class="nav-link" href="index.html">Etusivu</a></li>
+            <li class="nav-item"><a class="nav-link" href="bmi.html">BMI laskuri</a></li>
+            <li class="nav-item"><a class="nav-link" href="rajapinnat.html">Omat merkinnat</a></li>
+            <li class="nav-item has-submenu"><a class="nav-link" href="harjoitukset.html">Tuntiharjoitukset</a>
+              <ul class="submenu">
+                <li><a href="/viikkoharjoitukset/flexbox-layout.html">Flexbox-layout</a></li>
+                <li><a href="/viikkoharjoitukset/flexbox.html">Flexbox</a></li>
+                <li><a href="/viikkoharjoitukset/js_treenaus.html">Js-treenaus</a></li>
+                <li><a href="/viikkoharjoitukset/responsiivisuus.html">Responsiivisuus</a></li>
+              </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="yhteystiedot.html">Yhteystiedot</a></li>
+          </ul>
+        </nav>
+
+        <div class='clear'></div>
+      </div>
+    </header>
+
+    <main class="diary-main">
+      <section class="diary-card">
+        <h1>Terveystietosi</h1>
+        <p>Tällä sivulla voit tarkastella liikuntahistoriaasi, lisätä uusia merkintöjä tai muuttaa aiempia.</p>
+
+        <form class="items-create-form diary-form">
+          <input type="hidden" id="entryEditId" name="entryEditId" />
+
+          <div class="diary-row-main">
+            <div class="diary-field diary-field-date">
+              <label for="entryDate">Päivämäärä</label>
+              <input id="entryDate" name="entryDate" type="date" required />
+            </div>
+
+            <div class="diary-field diary-field-activity">
+              <label for="entryNote">Aktiviteetti</label>
+              <input
+                id="entryNote"
+                name="entryNote"
+                type="text"
+                placeholder="esim. Kävely"
+                required
+              />
+            </div>
+
+            <div class="diary-field diary-field-intensity">
+              <label for="entryValue">Intensiivisyys (1-10)</label>
+              <input
+                id="entryValue"
+                name="entryValue"
+                type="number"
+                min="1"
+                max="10"
+                step="1"
+                inputmode="numeric"
+              />
+            </div>
+
+            <div class="diary-field diary-field-duration">
+              <label>Kesto</label>
+              <div class="diary-duration-group">
+                <input
+                  id="entryHours"
+                  name="entryHours"
+                  type="number"
+                  min="0"
+                  step="1"
+                  inputmode="numeric"
+                  placeholder="h"
+                />
+                <input
+                  id="entryMinutes"
+                  name="entryMinutes"
+                  type="number"
+                  min="0"
+                  max="59"
+                  step="1"
+                  inputmode="numeric"
+                  placeholder="min"
+                />
+              </div>
+            </div>
+
+            <div class="diary-buttons">
+              <button type="submit" class="entry-save-btn diary-cta">Tallenna</button>
+              <button type="button" class="items-load-all diary-cta">Päivitä</button>
+              <button type="button" class="entry-cancel-btn" hidden>Peru muokkaus</button>
+            </div>
+          </div>
+        </form>
+
+        <table class="styled-table diary-table">
+          <thead>
+            <tr>
+              <th>Päivämäärä</th>
+              <th>Aktiviteetti</th>
+              <th>Intensiivisyys (1-10)</th>
+              <th>Kesto</th>
+              <th>ID</th>
+            </tr>
+          </thead>
+          <tbody class="items-tbody"></tbody>
+        </table>
+
+        <pre class="items-response" aria-live="polite"></pre>
+      </section>
+    </main>
+
+    <script type="module" src="/js/api.js"></script>
+    <script type="module" src="/js/siteAuth.js"></script>
+  </body>
+</html>

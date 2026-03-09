@@ -6,6 +6,7 @@ const state = {
   users: [],
 };
 
+// Muuntaa backendin aikaleiman luettavaan muotoon taulukkoa varten
 const formatDate = (value) => {
   if (!value) {
     return '-';
@@ -21,6 +22,7 @@ const formatDate = (value) => {
 
 const pretty = (data) => JSON.stringify(data, null, 2);
 
+// Haetaan kaikki users-nakymän tarvitsemat DOM-elementit
 const getElements = () => ({
   responseBox: document.querySelector('.users-response'),
   tbody: document.querySelector('.users-tbody'),
@@ -32,6 +34,7 @@ const getElements = () => ({
   deleteForm: document.querySelector('.users-delete-form'),
 });
 
+// Näyttää backendin vastauksen (onnistuminen/virhe)
 const showResponse = (payload) => {
   const { responseBox } = getElements();
   if (responseBox) {
@@ -39,18 +42,21 @@ const showResponse = (payload) => {
   }
 };
 
+// Tyhjentää users-näkymän, kun käyttajä ei ole kirjautunut
 const clearUsersView = () => {
   state.users = [];
   renderUsers([]);
   showResponse({ message: 'Kirjaudu sisaan kayttaaksesi users-endpointteja.' });
 };
 
+// Asettaa users-listan taulukkoon
 const renderUsers = (users) => {
   const { tbody } = getElements();
   if (!tbody) {
     return;
   }
 
+  // Tyhjennetään vanhat rivit ennen uusien luontia
   tbody.innerHTML = '';
 
   users.forEach((user) => {
@@ -70,6 +76,8 @@ const renderUsers = (users) => {
   });
 };
 
+// GET /api/users
+// Hakee kaikki käyttäjät ja päivittää taulukon
 const loadUsers = async () => {
   const result = await fetchData(USERS_URL);
 
@@ -83,6 +91,8 @@ const loadUsers = async () => {
   showResponse(state.users);
 };
 
+// Suodattaa users-listaa hakukentästä kirjoitetun tekstin perusteella
+// Haku osuu username- tai email-kenttään
 const applySearch = () => {
   const { searchInput } = getElements();
   if (!searchInput) {
@@ -104,6 +114,8 @@ const applySearch = () => {
   renderUsers(filtered);
 };
 
+// GET /api/users/:id
+// Hakee käyttäjän ID:n perusteella
 const getUserById = async (event) => {
   event.preventDefault();
 
@@ -114,6 +126,8 @@ const getUserById = async (event) => {
   showResponse(result);
 };
 
+// POST /api/users
+// Luo uuden käyttäjän
 const createUser = async (event) => {
   event.preventDefault();
 
@@ -134,12 +148,15 @@ const createUser = async (event) => {
 
   showResponse(result);
 
+  // Onnistuneen luonnin jälkeen tyhjennetään formi ja päivitetään lista
   if (!result.error) {
     form.reset();
     await loadUsers();
   }
 };
 
+// PUT /api/users/:id
+// Päivittää käyttäjää
 const updateUser = async (event) => {
   event.preventDefault();
 
@@ -147,6 +164,7 @@ const updateUser = async (event) => {
   const formData = new FormData(form);
   const userId = String(formData.get('userId') || '').trim();
 
+  // Kootaan kaikki mahdolliset päivitettävät kentät
   const payload = {
     username: String(formData.get('username') || '').trim(),
     email: String(formData.get('email') || '').trim(),
@@ -154,10 +172,12 @@ const updateUser = async (event) => {
     user_level: String(formData.get('user_level') || '').trim(),
   };
 
+  // Poistetaan tyhjät kentät
   const body = Object.fromEntries(
     Object.entries(payload).filter(([, value]) => value !== '')
   );
 
+  // Jos päivitettävää dataa ei ole, ei pyyntöä lähetetä
   if (!Object.keys(body).length) {
     showResponse({ error: 'Anna vahintaan yksi kentta paivitettavaksi.' });
     return;
@@ -177,6 +197,8 @@ const updateUser = async (event) => {
   }
 };
 
+// DELETE /api/users/:id
+// Yhteinen poistofunktio
 const deleteUserById = async (id) => {
   const result = await fetchData(`${USERS_URL}/${id}`, {
     method: 'DELETE',
@@ -189,6 +211,7 @@ const deleteUserById = async (id) => {
   }
 };
 
+// Poistaa käyttäjän delete-formista annetulla ID:lla
 const deleteUserFromForm = async (event) => {
   event.preventDefault();
 
@@ -201,6 +224,7 @@ const deleteUserFromForm = async (event) => {
     return;
   }
 
+  // Varmistus ennen poistoa
   const confirmed = window.confirm(`Poistetaanko kayttaja ${userId}?`);
   if (!confirmed) {
     return;
@@ -210,6 +234,8 @@ const deleteUserFromForm = async (event) => {
   form.reset();
 };
 
+// Käsittelee taulukon rivinappien (Info/Delete) klikkaukset
+// Käytetään event delegationia
 const handleTableActions = async (event) => {
   const infoButton = event.target.closest('.row-info');
   if (infoButton) {
@@ -230,6 +256,9 @@ const handleTableActions = async (event) => {
   }
 };
 
+// Reagoi kirjautumistilan muutokseen:
+// - kirjautuneena haetaan data
+// - kirjautumattomana tyhjennetään lista
 const syncWithAuthState = () => {
   if (hasAuthToken()) {
     loadUsers();
@@ -239,6 +268,9 @@ const syncWithAuthState = () => {
   clearUsersView();
 };
 
+// Alustaa koko users-välilehden:
+// 1) lisataan event-kuuntelijat
+// 2) synkataan heti autentikaatio-tilan mukaan
 const initUsersTab = () => {
   const {
     loadAllBtn,
@@ -249,6 +281,19 @@ const initUsersTab = () => {
     deleteForm,
     tbody,
   } = getElements();
+
+  // Jos sivulla ei ole users-elementtejä, lopetetaan
+  if (
+    !loadAllBtn ||
+    !searchInput ||
+    !getForm ||
+    !createForm ||
+    !updateForm ||
+    !deleteForm ||
+    !tbody
+  ) {
+    return;
+  }
 
   loadAllBtn.addEventListener('click', loadUsers);
   searchInput.addEventListener('input', applySearch);

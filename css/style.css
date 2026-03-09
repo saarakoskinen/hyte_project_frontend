@@ -34,6 +34,10 @@ main {
   margin: 0 auto;
 }
 
+.site-header .container {
+  position: relative;
+}
+
 .site-header {
   background: rgba(105, 34, 34, 0.914);
   border-bottom: 1px solid rgba(0, 0, 0, 0.35);
@@ -489,5 +493,319 @@ img {
 
   * {
     overflow-wrap: anywhere;
+  }
+}
+/* Site-wide auth: compact trigger in top-right + own login dialog */
+.site-auth-trigger {
+  position: absolute;
+  right: 0;
+  top: 12px;
+  z-index: 20;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.site-auth-dialog {
+  border: none;
+  border-radius: 12px;
+  padding: 0;
+  width: min(420px, calc(100% - 24px));
+  max-width: 420px;
+  background: transparent;
+}
+
+.site-auth-dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.site-auth-card {
+  background: #f0f3f9;
+  color: #222;
+  border: 1px solid #d7deec;
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.site-auth-dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.site-auth-dialog-title {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.site-auth-close {
+  border: 1px solid #c8d0df;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.site-auth-login-form {
+  display: grid;
+  gap: 8px;
+}
+
+.site-auth-login-form input,
+.site-auth-register-form input {
+  width: 100%;
+  padding: 9px;
+  border: 1px solid #cfd8e8;
+  border-radius: 8px;
+  background: #fff;
+  color: #111;
+}
+
+.site-auth-login-form button,
+.site-auth-register-form button,
+.site-auth-logout-btn {
+  margin-top: 4px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #c7d1e2;
+  background: #fff;
+  cursor: pointer;
+}
+
+.site-auth-welcome {
+  margin: 0 0 10px;
+  font-weight: 700;
+}
+
+.site-auth-divider {
+  margin: 12px 0;
+  border: 0;
+  border-top: 1px solid #d3ddec;
+}
+
+.site-auth-subtitle {
+  margin: 0 0 8px;
+  font-size: 0.95rem;
+}
+
+.site-auth-register-form {
+  display: grid;
+  gap: 8px;
+}
+
+.site-auth-feedback {
+  min-height: 22px;
+  margin: 10px 0 0;
+  font-size: 0.9rem;
+}
+
+.site-auth-feedback[data-type='error'] {
+  color: #a22222;
+}
+
+.site-auth-feedback[data-type='success'] {
+  color: #1a6e24;
+}
+
+@media screen and (max-width: 980px) {
+  .site-auth-trigger {
+    position: static;
+    margin-top: 8px;
+    width: 100%;
+  }
+}
+
+/* Daily entries page */
+.diary-main {
+  padding: 24px 0 40px;
+}
+
+.diary-card {
+  width: min(980px, calc(100% - 32px));
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 14px;
+  padding: 18px;
+  color: #f5f5f5;
+}
+
+.diary-actions {
+  margin: 12px 0;
+}
+
+.diary-form {
+  margin-bottom: 14px;
+}
+
+.diary-form input {
+  width: 100%;
+  height: 56px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.diary-form button {
+  height: 42px;
+}
+
+.diary-table {
+  margin-top: 8px;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.diary-table th,
+.diary-table td {
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.items-response {
+  margin-top: 12px;
+  padding: 8px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.25);
+  display: none;
+}
+
+.diary-row-main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  align-items: start;
+  margin-bottom: 12px;
+}
+
+.diary-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.diary-field label {
+  min-height: 30px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.diary-duration-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.diary-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: stretch;
+  padding-top: 0;
+}
+
+.diary-buttons button {
+  height: 56px;
+  min-width: 140px;
+}
+
+.diary-table button {
+  margin-right: 6px;
+}
+
+.diary-cta {
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  background: rgba(255, 255, 255, 0.4);
+  color: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
+  font-weight: 700;
+}
+
+.diary-cta:hover {
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.diary-cta:active {
+  transform: scale(0.99);
+}
+
+@media (max-width: 700px) {
+  .diary-card {
+    width: min(100%, calc(100% - 20px));
+    padding: 14px;
+  }
+
+  .diary-row-main {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .diary-field-activity {
+    grid-column: 1 / span 2;
+  }
+
+  .diary-field-duration {
+    grid-column: 1 / span 2;
+  }
+
+  .diary-buttons {
+    grid-column: 1 / span 2;
+    padding-top: 0;
+  }
+
+  .diary-buttons {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .diary-table {
+    font-size: 0.86rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .diary-main {
+    padding: 14px 0 24px;
+  }
+
+  .diary-card h1 {
+    font-size: 2.1rem;
+    margin-bottom: 10px;
+  }
+
+  .diary-card p {
+    font-size: 1rem;
+  }
+
+  .diary-buttons button {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .diary-row-main {
+    grid-template-columns: 1fr;
+  }
+
+  .diary-field-activity,
+  .diary-field-duration,
+  .diary-buttons {
+    grid-column: auto;
+  }
+
+  .diary-table {
+    font-size: 0.78rem;
+  }
+
+  .diary-table th,
+  .diary-table td {
+    padding: 8px 6px;
   }
 }

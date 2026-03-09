@@ -1,25 +1,25 @@
 /**
- * Yhteinen fetch-apuri + JWT-tokenin hallinta.
+ * Yhteinen fetch-apuri + JWT-tokenin hallinta
  */
 
 const AUTH_TOKEN_KEY = 'health_diary_jwt';
 
 /**
- * Palauttaa localStoragessa olevan JWT-tokenin.
+ * Palauttaa localStoragessa olevan JWT-tokenin
  *
  * @returns {string}
  */
 const getAuthToken = () => localStorage.getItem(AUTH_TOKEN_KEY) || '';
 
 /**
- * Tarkistaa onko kayttaja kirjautunut (token olemassa).
+ * Tarkistaa onko käyttajä kirjautunut (token olemassa)
  *
  * @returns {boolean}
  */
 const hasAuthToken = () => Boolean(getAuthToken());
 
 /**
- * Tallentaa tokenin ja ilmoittaa auth-tilan muutoksesta.
+ * Tallentaa tokenin ja ilmoittaa autentikaatio-tilan muutoksesta
  *
  * @param {string} token
  */
@@ -35,7 +35,7 @@ const setAuthToken = (token) => {
 };
 
 /**
- * Poistaa tokenin ja ilmoittaa auth-tilan muutoksesta.
+ * Poistaa tokenin ja ilmoittaa autentikaatio-tilan muutoksesta
  */
 const clearAuthToken = () => {
   localStorage.removeItem(AUTH_TOKEN_KEY);
@@ -45,8 +45,7 @@ const clearAuthToken = () => {
 };
 
 /**
- * Tekee HTTP-kutsun ja palauttaa JSONin (tai tekstin) yhtenaisessa muodossa.
- *
+ * Tekee HTTP-kutsun ja palauttaa JSONin (tai tekstin) yhtenäisessa muodossa
  * @param {string} url
  * @param {RequestInit} options
  * @param {{ skipAuth?: boolean }} config
@@ -55,13 +54,13 @@ const clearAuthToken = () => {
 const fetchData = async (url, options = {}, config = {}) => {
   const { skipAuth = false } = config;
 
-  // Login-kutsua lukuun ottamatta vaaditaan token frontendin tasolla.
+  // Login-kutsua lukuun ottamatta vaaditaan token
   if (!skipAuth && !hasAuthToken()) {
     return { error: 'Kirjaudu sisaan ensin.', status: 401 };
   }
 
   try {
-    // Kootaan headerit yhteen: olemassa olevat + Authorization jos kirjautunut.
+    // Kootaan headerit yhteen: olemassa olevat + Authorization jos kirjautunut
     const headers = new Headers(options.headers || {});
 
     if (!skipAuth) {
@@ -79,7 +78,7 @@ const fetchData = async (url, options = {}, config = {}) => {
       payload = text ? { message: text } : {};
     }
 
-    // Jos token on vanhentunut/virheellinen, pudotetaan kirjautuminen pois paalta.
+    // Jos token on vanhentunut/virheellinen, kirjaudutaan ulos
     if (!skipAuth && (response.status === 401 || response.status === 403)) {
       clearAuthToken();
     }

@@ -8,7 +8,7 @@ export default defineConfig({
   server: {
     proxy: {
       // Dev-CORS korjaus: selaimesta kutsutaan /api/* samaan originin,
-      // Vite valittaa pyynnot taustalla backendiin 127.0.0.1:3000.
+      // Vite valittaa pyynnöt taustalla backendiin 127.0.0.1:3000.
       '/api': {
         target: 'http://127.0.0.1:3000',
         changeOrigin: true,
@@ -23,6 +23,7 @@ export default defineConfig({
         bmi: resolve(__dirname, 'bmi.html'),
         contact: resolve(__dirname, 'yhteystiedot.html'),
         harjoituket: resolve(__dirname, 'harjoitukset.html'),
+        entryt: resolve(__dirname, 'rajapinnat.html'),
       },
     },
   },
