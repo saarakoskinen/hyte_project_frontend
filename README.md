@@ -5,3 +5,17 @@ Sovellus on yksinkertainen nettisivu omien liikuntatottumusten seurantaan. Se si
 
 
 Koodin kehittämisessä on hyödynnetty opettajien esimerkkikoodeja, sekä tekoälytyökaluja, kuten ChatGPT:tä ja Codexia. Tekoälyä on käytetty laajalti tukena koodin ideoinnissa, rakenteen hahmottamisessa ja ongelmien ratkaisemisessa. Lopullinen toteutus ei kuitenkaan ole suoraan tekoälyn tuottama, vaan sitä on muokattu ja sovellettu projektin tarpeisiin. Sivuston kehittäjä ymmärtää koodin toiminnan kokonaisuudessaan.
+
+
+## Tehdyt tehtävät, Terveyssovelluksen kehitys, Testaus
+
+Asennettu seuraavat työkalut:
+- Robot Framework
+- Browser Library
+- Requests library
+- CryptoLibrary
+- Robotidy
+
+![Robotframework_asennukset](.public/images/Robotframework asennukset, hyte 2026.png)
+
+Tekoäly ChatGPT:ltä kysytty apua asennuksiin
