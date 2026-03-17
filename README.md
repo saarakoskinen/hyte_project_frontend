@@ -17,5 +17,6 @@ Asennettu seuraavat työkalut:
 - Robotidy
 
 ![Robotframework asennukset](./public/Robotframework_asennukset_hyte_2026.png)
+![Asennustesti](./public/Asennustesti.png)
 
 Tekoäly ChatGPT:ltä kysytty apua asennuksiin
