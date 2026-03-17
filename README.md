@@ -16,6 +16,6 @@ Asennettu seuraavat työkalut:
 - CryptoLibrary
 - Robotidy
 
-![Robotframework_asennukset](.public/images/Robotframework asennukset, hyte 2026.png)
+![Robotframework asennukset](./public/Robotframework_asennukset_hyte_2026.png)
 
 Tekoäly ChatGPT:ltä kysytty apua asennuksiin
