@@ -34,7 +34,7 @@ Tekoäly ChatGPT:ltä kysytty apua asennuksiin
     - ***variables*** edessä oli ylimääräinen välilyönti
 - Virheet selvitetty ja korjattu
 - robot browser_demo.robot ajettu onnistuneesti
-- Tiedostorakenne muutettu siistimmäksi: nyt testit toimii komennolla robot tests/robot/browser_demo.robot. (tässä kohdassa oikean komennon löytämiseksi on kysytty apua ChatGPT:ltä)
+- Tiedostorakenne muutettu siistimmäksi: nyt testit toimii komennolla robot -d tests/outputs tests/robot/browser_demo.robot. (tässä kohdassa oikean komennon löytämiseksi on kysytty apua ChatGPT:ltä)
 
 ![Onnistunut Chromiumissa](./public/tehtava2.png)
 ![Onnistunut terminaalissa](./public/tehtava2-2.png)

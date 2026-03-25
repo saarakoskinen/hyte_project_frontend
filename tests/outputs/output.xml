@@ -1,46 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.4.2 (Python 3.14.0 on darwin)" generated="2026-03-25T15:14:45.562635" rpa="false" schemaversion="5">
-<suite id="s1" name="Browser Demo" source="/Users/saara/Codes/Web-sovelluskehitys, hyte 2026/Web-sovelluskehitys, Frontend, Hyte 2026/vite-project/browser_demo.robot">
+<robot generator="Robot 7.4.2 (Python 3.14.0 on darwin)" generated="2026-03-25T15:35:24.706816" rpa="false" schemaversion="5">
+<suite id="s1" name="Browser Demo" source="/Users/saara/Codes/Web-sovelluskehitys, hyte 2026/Web-sovelluskehitys, Frontend, Hyte 2026/vite-project/tests/robot/browser_demo.robot">
 <test id="s1-t1" name="Test Web Form" line="7">
 <kw name="New Browser" owner="Browser">
-<msg time="2026-03-25T15:14:45.730707" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "/Users/saara/Codes/Web-sovelluskehitys, hyte 2026/Web-sovelluskehitys, Frontend, Hyte 2026/vite-project/browser/traces/temp/24060f6c-f739-4a45-a512-bc0a4ec0dc06"}</msg>
-<msg time="2026-03-25T15:14:45.836586" level="INFO">Starting Browser process /Users/saara/Codes/Web-sovelluskehitys, hyte 2026/Web-sovelluskehitys, Frontend, Hyte 2026/vite-project/.venv/lib/python3.14/site-packages/Browser/wrapper/index.js using at 127.0.0.1:49399</msg>
-<msg time="2026-03-25T15:14:49.078378" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"/Users/saara/Codes/Web-sovelluskehitys, hyte 2026/Web-sovelluskehitys, Frontend, Hyte 2026/vite-project/browser/traces/temp/24060f6c-f739-4a45-a512-bc0a4ec0dc06"}</msg>
+<msg time="2026-03-25T15:35:24.857158" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "/Users/saara/Codes/Web-sovelluskehitys, hyte 2026/Web-sovelluskehitys, Frontend, Hyte 2026/vite-project/tests/outputs/browser/traces/temp/f6f5872d-413b-47e7-a826-9fdc2feb2f02"}</msg>
+<msg time="2026-03-25T15:35:24.950824" level="INFO">Starting Browser process /Users/saara/Codes/Web-sovelluskehitys, hyte 2026/Web-sovelluskehitys, Frontend, Hyte 2026/vite-project/.venv/lib/python3.14/site-packages/Browser/wrapper/index.js using at 127.0.0.1:49728</msg>
+<msg time="2026-03-25T15:35:28.266992" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"/Users/saara/Codes/Web-sovelluskehitys, hyte 2026/Web-sovelluskehitys, Frontend, Hyte 2026/vite-project/tests/outputs/browser/traces/temp/f6f5872d-413b-47e7-a826-9fdc2feb2f02"}</msg>
 <arg>chromium</arg>
 <arg>headless=No</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Create a new playwright Browser with specified options.</doc>
-<status status="PASS" start="2026-03-25T15:14:45.730288" elapsed="3.350520"/>
+<status status="PASS" start="2026-03-25T15:35:24.856720" elapsed="3.414174"/>
 </kw>
 <kw name="New Page" owner="Browser">
-<msg time="2026-03-25T15:14:52.087776" level="INFO">Successfully initialized new page object and opened url: https://www.selenium.dev/selenium/web/web-form.html</msg>
-<msg time="2026-03-25T15:14:52.090331" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<msg time="2026-03-25T15:35:29.718231" level="INFO">Successfully initialized new page object and opened url: https://www.selenium.dev/selenium/web/web-form.html</msg>
+<msg time="2026-03-25T15:35:29.720555" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
 <arg>https://www.selenium.dev/selenium/web/web-form.html</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Open a new Page.</doc>
-<status status="PASS" start="2026-03-25T15:14:49.082835" elapsed="3.008699"/>
+<status status="PASS" start="2026-03-25T15:35:28.274427" elapsed="1.448270"/>
 </kw>
 <kw name="Get Title" owner="Browser">
-<msg time="2026-03-25T15:14:52.143200" level="INFO">Title: 'Web form'</msg>
+<msg time="2026-03-25T15:35:29.794131" level="INFO">Title: 'Web form'</msg>
 <arg>==</arg>
 <arg>Web form</arg>
 <tag>Assertion</tag>
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns the title of the current page.</doc>
-<status status="PASS" start="2026-03-25T15:14:52.095036" elapsed="0.049025"/>
+<status status="PASS" start="2026-03-25T15:35:29.742682" elapsed="0.051757"/>
 </kw>
 <kw name="Type Text" owner="Browser">
-<msg time="2026-03-25T15:14:52.148596" level="INFO">Types the text 'somebody@example.com' in the given field.</msg>
+<msg time="2026-03-25T15:35:29.798637" level="INFO">Types the text 'somebody@example.com' in the given field.</msg>
 <arg>[name="my-text"]</arg>
 <arg>${Username}</arg>
 <arg>delay=0.1 s</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
-<status status="PASS" start="2026-03-25T15:14:52.146136" elapsed="2.159760"/>
+<status status="PASS" start="2026-03-25T15:35:29.794867" elapsed="2.230395"/>
 </kw>
 <kw name="Type Secret" owner="Browser">
 <arg>[name="my-password"]</arg>
@@ -50,10 +50,10 @@
 <tag>Setter</tag>
 <doc>Types the given secret from ``variable_name`` into the text field
 found by ``selector``.</doc>
-<status status="PASS" start="2026-03-25T15:14:54.306360" elapsed="1.314948"/>
+<status status="PASS" start="2026-03-25T15:35:32.027555" elapsed="1.341765"/>
 </kw>
 <kw name="Type Text" owner="Browser">
-<msg time="2026-03-25T15:14:55.622840" level="INFO">Types the text 'Hello, Robot Framework!
+<msg time="2026-03-25T15:35:33.376422" level="INFO">Types the text 'Hello, Robot Framework!
 How are you today?' in the given field.</msg>
 <arg>[name="my-textarea"]</arg>
 <arg>${Message}</arg>
@@ -61,19 +61,19 @@ How are you today?' in the given field.</msg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
-<status status="PASS" start="2026-03-25T15:14:55.621972" elapsed="4.373108"/>
+<status status="PASS" start="2026-03-25T15:35:33.371191" elapsed="4.380622"/>
 </kw>
 <kw name="Click With Options" owner="Browser">
-<msg time="2026-03-25T15:14:59.997750" level="INFO">Clicks the element 'button'.</msg>
+<msg time="2026-03-25T15:35:37.754184" level="INFO">Clicks the element 'button'.</msg>
 <arg>button</arg>
 <arg>delay=2 s</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<status status="PASS" start="2026-03-25T15:14:59.995834" elapsed="2.355842"/>
+<status status="PASS" start="2026-03-25T15:35:37.752506" elapsed="2.156057"/>
 </kw>
 <kw name="Get Text" owner="Browser">
-<msg time="2026-03-25T15:15:02.402844" level="INFO">Text: 'Received!'</msg>
+<msg time="2026-03-25T15:35:39.942944" level="INFO">Text: 'Received!'</msg>
 <arg>id=message</arg>
 <arg>==</arg>
 <arg>Received!</arg>
@@ -81,11 +81,11 @@ How are you today?' in the given field.</msg>
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns text attribute of the element found by ``selector``.</doc>
-<status status="PASS" start="2026-03-25T15:15:02.355388" elapsed="0.047548"/>
+<status status="PASS" start="2026-03-25T15:35:39.910565" elapsed="0.032475"/>
 </kw>
-<status status="PASS" start="2026-03-25T15:14:45.729789" elapsed="16.673414"/>
+<status status="PASS" start="2026-03-25T15:35:24.856226" elapsed="15.087113"/>
 </test>
-<status status="PASS" start="2026-03-25T15:14:45.563450" elapsed="16.841787"/>
+<status status="PASS" start="2026-03-25T15:35:24.707749" elapsed="15.237430"/>
 </suite>
 <statistics>
 <total>
