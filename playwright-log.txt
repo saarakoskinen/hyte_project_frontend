@@ -1,0 +1,28 @@
+{"level":30,"time":"2026-03-25T13:27:31.343Z","pid":77060,"hostname":"MacBook-Air-182.local","msg":"Listening on 127.0.0.1:49586"}
+{"level":30,"time":"2026-03-25T13:27:32.387Z","pid":77060,"hostname":"MacBook-Air-182.local","msg":"Start of node method newBrowser"}
+{"level":30,"time":"2026-03-25T13:27:34.343Z","pid":77060,"hostname":"MacBook-Air-182.local","msg":"Adding browser to stack: chromium, version: 145.0.7632.6"}
+{"level":30,"time":"2026-03-25T13:27:34.353Z","pid":77060,"hostname":"MacBook-Air-182.local","msg":"Adding 0 contexts to browser"}
+{"level":30,"time":"2026-03-25T13:27:34.353Z","pid":77060,"hostname":"MacBook-Air-182.local","msg":"End of node method newBrowser"}
+{"level":30,"time":"2026-03-25T13:27:34.409Z","pid":77060,"hostname":"MacBook-Air-182.local","msg":"Start of node method newPage"}
+{"level":30,"time":"2026-03-25T13:27:34.410Z","pid":77060,"hostname":"MacBook-Air-182.local","msg":"currentBrowser: {\"name\":\"chromium\",\"browser\":{\"_type\":\"Browser\",\"_guid\":\"browser@2f13a653269e00fc3f61b9e7c32859d5\"},\"headless\":false,\"_contextStack\":[],\"id\":\"browser=20625e20-3262-463e-a973-5d7771c7729f\"}"}
+{"level":30,"time":"2026-03-25T13:27:34.445Z","pid":77060,"hostname":"MacBook-Air-182.local","msg":"Setting default timeout for context context=6f3e6059-4908-4a1b-978d-db261d863285 to 10000"}
+{"level":30,"time":"2026-03-25T13:27:34.445Z","pid":77060,"hostname":"MacBook-Air-182.local","msg":"Changed active context: context=6f3e6059-4908-4a1b-978d-db261d863285"}
+{"level":30,"time":"2026-03-25T13:27:36.197Z","pid":77060,"hostname":"MacBook-Air-182.local","msg":"Video path: undefined"}
+{"level":30,"time":"2026-03-25T13:27:36.199Z","pid":77060,"hostname":"MacBook-Air-182.local","msg":"Changed active page"}
+{"level":30,"time":"2026-03-25T13:27:37.507Z","pid":77060,"hostname":"MacBook-Air-182.local","msg":"End of node method newPage"}
+{"level":30,"time":"2026-03-25T13:27:37.584Z","pid":77060,"hostname":"MacBook-Air-182.local","msg":"Start of node method typeText"}
+{"level":30,"time":"2026-03-25T13:27:37.585Z","pid":77060,"hostname":"MacBook-Air-182.local","msg":"Strict mode is enabled, find Locator with [name=\"my-text\"] in page."}
+{"level":30,"time":"2026-03-25T13:27:39.704Z","pid":77060,"hostname":"MacBook-Air-182.local","msg":"End of node method typeText"}
+{"level":30,"time":"2026-03-25T13:27:39.711Z","pid":77060,"hostname":"MacBook-Air-182.local","msg":"Start of node method typeText"}
+{"level":30,"time":"2026-03-25T13:27:39.711Z","pid":77060,"hostname":"MacBook-Air-182.local","msg":"Strict mode is enabled, find Locator with [name=\"my-password\"] in page."}
+{"level":30,"time":"2026-03-25T13:27:41.012Z","pid":77060,"hostname":"MacBook-Air-182.local","msg":"End of node method typeText"}
+{"level":30,"time":"2026-03-25T13:27:41.019Z","pid":77060,"hostname":"MacBook-Air-182.local","msg":"Start of node method typeText"}
+{"level":30,"time":"2026-03-25T13:27:41.020Z","pid":77060,"hostname":"MacBook-Air-182.local","msg":"Strict mode is enabled, find Locator with [name=\"my-textarea\"] in page."}
+{"level":30,"time":"2026-03-25T13:27:45.405Z","pid":77060,"hostname":"MacBook-Air-182.local","msg":"End of node method typeText"}
+{"level":30,"time":"2026-03-25T13:27:45.425Z","pid":77060,"hostname":"MacBook-Air-182.local","msg":"Start of node method click"}
+{"level":30,"time":"2026-03-25T13:27:45.425Z","pid":77060,"hostname":"MacBook-Air-182.local","msg":"Strict mode is enabled, find Locator with button in page."}
+{"level":30,"time":"2026-03-25T13:27:47.752Z","pid":77060,"hostname":"MacBook-Air-182.local","msg":"End of node method click"}
+{"level":30,"time":"2026-03-25T13:27:47.755Z","pid":77060,"hostname":"MacBook-Air-182.local","msg":"Start of node method getText"}
+{"level":30,"time":"2026-03-25T13:27:47.755Z","pid":77060,"hostname":"MacBook-Air-182.local","msg":"Strict mode is enabled, find Locator with id=message in page."}
+{"level":30,"time":"2026-03-25T13:27:47.790Z","pid":77060,"hostname":"MacBook-Air-182.local","msg":"Retrieved text for element id=message containing Received!"}
+{"level":30,"time":"2026-03-25T13:27:47.790Z","pid":77060,"hostname":"MacBook-Air-182.local","msg":"End of node method getText"}

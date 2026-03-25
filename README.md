@@ -9,6 +9,8 @@ Koodin kehittämisessä on hyödynnetty opettajien esimerkkikoodeja, sekä teko�
 
 ## Tehdyt tehtävät, Terveyssovelluksen kehitys, Testaus
 
+### Tehtävä 1
+
 Asennettu seuraavat työkalut:
 - Robot Framework
 - Browser Library
@@ -20,3 +22,19 @@ Asennettu seuraavat työkalut:
 ![Asennustesti](./public/Asennustesti.png)
 
 Tekoäly ChatGPT:ltä kysytty apua asennuksiin
+
+
+### Tehtävä 2
+
+- Tiedostot keywords.robot ja browser_demo.robot luotu
+- Yllä mainittuihin kopioitu opettajan antamat koodirivit
+- Ajettu terminaalissa robot browser_demo.robot
+- Epäonnistui kahdesta syystä
+    - keywords.robot tiedostonimen alkukirjaimen koko ei täsmännyt
+    - ***variables*** edessä oli ylimääräinen välilyönti
+- Virheet selvitetty ja korjattu
+- robot browser_demo.robot ajettu onnistuneesti
+- Tiedostorakenne muutettu siistimmäksi: nyt testit toimii komennolla robot tests/robot/browser_demo.robot. (tässä kohdassa oikean komennon löytämiseksi on kysytty apua ChatGPT:ltä)
+
+![Onnistunut Chromiumissa](./public/tehtava2.png)
+![Onnistunut terminaalissa](./public/tehtava2-2.png)
