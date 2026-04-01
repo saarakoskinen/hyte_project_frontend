@@ -1,4 +1,3 @@
 *** Variables ***
-${Username}     somebody@example.com
-${Password}     SuperSecret!
-${Message}      Hello, Robot Framework!\nHow are you today?
+${Username}    oma_tunnus
+${Password}    oma_salasana

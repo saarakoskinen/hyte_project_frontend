@@ -28,13 +28,8 @@ Tekoäly ChatGPT:ltä kysytty apua asennuksiin
 
 - Tiedostot keywords.robot ja browser_demo.robot luotu
 - Yllä mainittuihin kopioitu opettajan antamat koodirivit
-- Ajettu terminaalissa robot browser_demo.robot
-- Epäonnistui kahdesta syystä
-    - keywords.robot tiedostonimen alkukirjaimen koko ei täsmännyt
-    - ***variables*** edessä oli ylimääräinen välilyönti
-- Virheet selvitetty ja korjattu
-- robot browser_demo.robot ajettu onnistuneesti
-- Tiedostorakenne muutettu siistimmäksi: nyt testit toimii komennolla robot -d tests/outputs tests/robot/browser_demo.robot. (tässä kohdassa oikean komennon löytämiseksi on kysytty apua ChatGPT:ltä)
+- Koodi muokattu omaan sivustoon sopivaksi
+- Debuggauksessa käytetty apuna tekoälytyökalu Chat-GPT:tä
 
-![Onnistunut Chromiumissa](./public/tehtava2.png)
-![Onnistunut terminaalissa](./public/tehtava2-2.png)
+![Onnistunut terminaalissa](./public/tehtava2.png)
+![Onnistunut selaimessa](./public/tehtava2-2.png)

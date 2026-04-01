@@ -1,15 +1,19 @@
 *** Settings ***
-Library     Browser    auto_closing_level=KEEP
-Resource    keywords.robot  
+Library    Browser    auto_closing_level=KEEP
+Resource    keywords.robot
 
+*** Variables ***
+${URL}    http://localhost:5173
 
 *** Test Cases ***
-Test Web Form
-    New Browser    chromium    headless=No  
-    New Page       https://www.selenium.dev/selenium/web/web-form.html 
-    Get Title      ==    Web form  
-    Type Text      [name="my-text"]        ${Username}    delay=0.1 s 
-    Type Secret    [name="my-password"]    $Password      delay=0.1 s
-    Type Text      [name="my-textarea"]    ${Message}     delay=0.1 s
-    Click With Options    button    delay=2 s
-    Get Text       id=message    ==    Received!
+Login To Own Site Successfully
+    New Browser    chromium    headless=No
+    New Page    ${URL}
+
+    Click    css=button.site-auth-trigger
+    Wait For Elements State    text=Tunnistautuminen    visible
+
+    Wait For Elements State    css=input >> nth=0    visible
+    Type Text    css=input >> nth=0    ${Username}
+    Type Secret    css=input >> nth=1    $Password
+    Click    css=button[type="submit"] >> nth=0
