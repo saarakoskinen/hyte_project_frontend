@@ -56,3 +56,5 @@ Tekoäly ChatGPT:ltä kysytty apua asennuksiin
 - Testit ajettu onnistuneesti
 
 ![Testit onnistuneet](./public/tehtava3-3.png)
+
+Tekoäly ChatGPT:tä käytetty työkaluna tehtävänannon ymmärtämisessä, oikeiden komentojen löytämisessä sekä debuggaamisessa
