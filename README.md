@@ -48,11 +48,11 @@ Tekoäly ChatGPT:ltä kysytty apua asennuksiin
 
 ![Avainpari luotu onnistuneesti](./public/tehtava3-1.png)
 
-- Salasana ja käyttäjänimi salattu käyttäen CryptoClientia
+- Salasana ja käyttäjänimi salattu käyttäen CryptoClientia, jotta ne eivät ole koodissa näkyvissä
 
 ![Tiedot salattu](./public/tehtava3-2.png)
 
-- Lisätty testejä Web form-esimerkkisivun muiden kenttien toiminnasta
+- Lisätty testejä Web form -esimerkkisivun muiden kenttien toiminnasta: select dropdown, datalist, file input, checkbox ja radio button
 - Testit ajettu onnistuneesti
 
 ![Testit onnistuneet](./public/tehtava3-3.png)
