@@ -30,6 +30,29 @@ Tekoäly ChatGPT:ltä kysytty apua asennuksiin
 - Yllä mainittuihin kopioitu opettajan antamat koodirivit
 - Koodi muokattu omaan sivustoon sopivaksi
 - Debuggauksessa käytetty apuna tekoälytyökalu Chat-GPT:tä
+- Tietokanta ei käytössä, joten sisäänkirjautuminen ei onnistu puuttuvien käyttäjätietojen vuoksi, testi onnistuu kuitenkin
 
 ![Onnistunut terminaalissa](./public/tehtava2.png)
 ![Onnistunut selaimessa](./public/tehtava2-2.png)
+
+
+### Tehtävä 3
+
+- .env tiedosto luotu
+- .env lisätty .gitignoreen
+- load_env.py tiedosto lisätty
+- python-dotenv-kirjasto ladattu verkkoympäristöön
+- web-form.robot luotu: täällä käytetään tuota Python-kirjastoa
+- CryptoLibrary asennettu
+- Salausavaimet generoitu
+
+![Avainpari luotu onnistuneesti](./public/tehtava3-1.png)
+
+- Salasana ja käyttäjänimi salattu käyttäen CryptoClientia
+
+![Tiedot salattu](./public/tehtava3-2.png)
+
+- Lisätty testejä Web form-esimerkkisivun muiden kenttien toiminnasta
+- Testit ajettu onnistuneesti
+
+![Testit onnistuneet](./public/tehtava3-3.png)
