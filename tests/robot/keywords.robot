@@ -1,3 +1,3 @@
 *** Variables ***
-${Username}    oma_tunnus
-${Password}    oma_salasana
+${Username}    testi
+${Password}    testi

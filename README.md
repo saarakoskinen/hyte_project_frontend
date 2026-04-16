@@ -31,6 +31,8 @@ Tekoäly ChatGPT:ltä kysytty apua asennuksiin
 - Koodi muokattu omaan sivustoon sopivaksi
 - Debuggauksessa käytetty apuna tekoälytyökalu Chat-GPT:tä
 - Tietokanta ei käytössä, joten sisäänkirjautuminen ei onnistu puuttuvien käyttäjätietojen vuoksi, testi onnistuu kuitenkin
+[Report](tests/outputs/report.html)
+[Log](tests/outputs/log.html)
 
 ![Onnistunut terminaalissa](./public/tehtava2.png)
 ![Onnistunut selaimessa](./public/tehtava2-2.png)
@@ -54,7 +56,81 @@ Tekoäly ChatGPT:ltä kysytty apua asennuksiin
 
 - Lisätty testejä Web form -esimerkkisivun muiden kenttien toiminnasta: select dropdown, datalist, file input, checkbox ja radio button
 - Testit ajettu onnistuneesti
+[Report](tests/outputs/report.html)
+[Log](tests/outputs/log.html)
 
 ![Testit onnistuneet](./public/tehtava3-3.png)
 
 Tekoäly ChatGPT:tä käytetty työkaluna tehtävänannon ymmärtämisessä, oikeiden komentojen löytämisessä sekä debuggaamisessa
+
+### Tehtävä 4
+
+- oma-sovellus.robot tiedosto luotu
+[Oma sovellus testi](tests/robot/oma-sovellus.robot)
+- Robot testi täyttää kentät onnistuneesti, mutta merkintä ei tallennu ilman sisäänkirjautumista
+- Sisäänkirjautumistesti lisätty
+- Käyttäjätunnus ja salasana tulevat piilotetusta keywords.robot tiedostosta
+- Diary entry onnistui
+[Report](tests/outputs/report.html)
+[Log](tests/outputs/log.html)
+- ChatGPT:tä käytetty työkaluna ongelmakohtien ratkaisussa
+
+![Testi onnistunut](./public/tehtava4.png)
+
+### Tehtävä 5
+
+- .env tiedostoon lisätty USERNAME, PASSWORD ja FRONTEND_URL
+    - Front- ja backend-URL:t eroteltiin selkeyden vuoksi
+- Tiedosto oma-kirjautumistesti-env.robot luotu
+[Kirjautumistesti .env](tests/robot/oma-kirjautumistesti-env.robot)
+- USERNAME, PASSWORD ja FRONTEND_URL lisätty load_env.py tiedostoon
+[Load_env](tests/load_env.py)
+- Kirjautuminen onnistui
+[Report](tests/outputs/report.html)
+[Log](tests/outputs/log.html)
+- ChatGPT:tä käytetty työkaluna ongelmakohtien ratkaisussa
+
+![Testi onnistunut](./public/tehtava5.png)
+
+### Tehtävä 6
+
+- oma-kirjautumistesti-crypto.robot tiedosto luotu
+[Cryptattu kirjautumistesti](tests/robot/oma-kirjautumistesti-crypto.robot)
+- Kirjautumistesti tehty käyttäen CryptoLibrarya
+- Salasana ja käyttäjätunnus kryptatty CryptoClientilla
+- Testi ajettu onnistuneesti
+[Report](tests/outputs/report.html)
+[Log](tests/outputs/log.html)
+- ChatGPT:tä käytetty työkaluna ongelmakohtien ratkaisussa
+
+![Testi onnistunut](./public/tehtava6.png)
+
+### Tehtävä 7
+
+- Testien loki- ja raporttitiedostot on ohjattu erilliseen `tests/outputs/`-kansioon ajamalla testit komennolla:
+`robot -d tests/outputs tests/robot/tiedostonimi.robot`
+
+- Tämän seurauksena `output.xml`, `log.html` ja `report.html` tallentuvat `tests/outputs/`-kansioon.
+
+### Tehtävä 8
+
+- Tutustuttu https://sakluk.github.io/projekti-terveyssovelluksen-kehitys/ohjeet_testaus/04_raportit_ja_lokitiedostot.html 
+- ChatGPT:tä käytetty apuna ymmärtämisessä
+- Luotu tests/outputs/README.md
+[outputs readme](tests/outputs/README.md)
+- Luotu tests/robot/README.md
+[robot readme](tests/robot/README.md)
+- Luotu tests/README.md
+[testit readme](tests/README.md)
+
+- Outputs readme.md lisätty linkit outputs tiedostoihin
+- Robot readme.md lisätty linkit robot testeihin
+- Testit kansion juuren readme.md lisätty linkit outputs kansioon sekä robot kansioon 
+
+#### Testiraportit
+
+- [Tests-kansio](tests/)
+- [Robot-testit](tests/robot/)
+- [Outputs](tests/outputs/)
+- [Report](tests/outputs/report.html)
+- [Log](tests/outputs/log.html)
