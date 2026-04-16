@@ -127,7 +127,7 @@ Tekoäly ChatGPT:tä käytetty työkaluna tehtävänannon ymmärtämisessä, oik
 - Robot readme.md lisätty linkit robot testeihin
 - Testit kansion juuren readme.md lisätty linkit outputs kansioon sekä robot kansioon 
 
-#### Testiraportit
+#### Linkit testeihin ja raportteihin
 
 - [Tests-kansio](tests/)
 - [Robot-testit](tests/robot/)
