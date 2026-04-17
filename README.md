@@ -137,3 +137,7 @@ Tekoäly ChatGPT:tä käytetty työkaluna tehtävänannon ymmärtämisessä, oik
 
 #### github.io sivusto
 - https://saarakoskinen.github.io/hyte_project_frontend/ 
+
+### Tehtävä 9
+
+- Dokumentaatio ja testit backendin repositoriossa
