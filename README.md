@@ -141,7 +141,7 @@ Tekoäly ChatGPT:tä käytetty työkaluna tehtävänannon ymmärtämisessä, oik
 ### Tehtävä 9
 
 - Dokumentaatio ja testit backendin repositoriossa
-- https://github.com/saarakoskinen/Health-Tech-Project-1/tree/Testit/test
+- [Backend](https://github.com/saarakoskinen/Health-Tech-Project-1/tree/Testit/test)
 
 ### Tehtävä 10
 
