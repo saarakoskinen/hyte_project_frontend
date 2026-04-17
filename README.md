@@ -141,3 +141,9 @@ Tekoäly ChatGPT:tä käytetty työkaluna tehtävänannon ymmärtämisessä, oik
 ### Tehtävä 9
 
 - Dokumentaatio ja testit backendin repositoriossa
+
+### Tehtävä 10
+
+Dokumentaatiota tehty kaikkien testien ja tehtävien kohdalla. Tässä tiedostossa on pääasiallinen dokumentaatio ja
+backend testien (tehtävä 9) löytyy osoitteesta https://github.com/saarakoskinen/Health-Tech-Project-1/tree/Testit/test.
+Dokumentaatio on test-kansion README.md tiedostossa.
