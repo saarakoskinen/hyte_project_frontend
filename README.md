@@ -146,5 +146,5 @@ Tekoäly ChatGPT:tä käytetty työkaluna tehtävänannon ymmärtämisessä, oik
 ### Tehtävä 10
 
 Dokumentaatiota tehty kaikkien testien ja tehtävien kohdalla. Tässä tiedostossa on pääasiallinen dokumentaatio ja
-backend testien (tehtävä 9) löytyy osoitteesta https://github.com/saarakoskinen/Health-Tech-Project-1/tree/Testit/test.
+backend testien (tehtävä 9) löytyy [Tästä](https://github.com/saarakoskinen/Health-Tech-Project-1/tree/Testit/test) osoitteesta.
 Dokumentaatio on test-kansion README.md tiedostossa.
